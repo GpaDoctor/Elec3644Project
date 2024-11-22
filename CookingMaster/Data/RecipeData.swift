@@ -10,7 +10,7 @@ import SwiftUI
 
 let recipesData: [Recipe] = [
     Recipe(
-        chief: "Ching Pan CHEUNi",
+        chef: "Ching Pan CHEUNG",
       title: "Avocado Crostini",
       headline: "Colourful twist on a classic.",
       image: "avocado-crostini",
@@ -39,7 +39,7 @@ let recipesData: [Recipe] = [
       ]
     ),
     Recipe(
-        chief: "Harry Potter",
+        chef: "Harry Potter",
       title: "Avocado Bacon Toast",
       headline: "The best toastie you'll ever make.",
       image: "avocado-toast-bacon",

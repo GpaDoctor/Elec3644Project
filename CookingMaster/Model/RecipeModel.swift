@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 struct Recipe: Identifiable {
-    var chief: String
+    var chef: String
     var id = UUID()
     var title: String
     var headline: String
