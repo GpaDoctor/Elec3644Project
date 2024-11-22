@@ -11,9 +11,9 @@ import SwiftUI
 let recipesData: [Recipe] = [
     Recipe(
         chef: "Ching Pan CHEUNG",
-      title: "Avocado Crostini",
+      title: "Salmon and baked vegetables — Fish Сhallenge",
       headline: "Colourful twist on a classic.",
-      image: "avocado-crostini",
+      image: "salmon",
       rating: 5,
       serves: 4,
       preparation: 20,
