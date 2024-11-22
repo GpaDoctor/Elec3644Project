@@ -21,9 +21,10 @@ struct RecipeCardView: View {
             Image(recipe.image)
                 .resizable()
                 .scaledToFill()
-                    .frame(width: 410, height: 250)
-                    .clipped()
-                    .foregroundStyle(.tint)
+                //.scaledToFill()
+                    //.frame(width: 410, height: 250)
+                    //.clipped()
+  //                  .foregroundStyle(.tint)
                 .overlay(
                     HStack {
                         Spacer()
@@ -40,6 +41,7 @@ struct RecipeCardView: View {
                         }
                     }
                 )
+            
             
             VStack(alignment: .leading, spacing: 12) {
                 
@@ -67,6 +69,7 @@ struct RecipeCardView: View {
             .padding()
             .padding(.bottom, 12)
         }
+        
         .background(Color.white)
         .cornerRadius(12)
         .shadow(color: Color("ColorBlackTransparentLight"), radius: 8, x: 0, y: 0)
@@ -74,6 +77,7 @@ struct RecipeCardView: View {
             haptics.impactOccurred()
             self.showModel = true
         }
+
 //        .sheet(isPresented: $showModal) {
 //            RecipeDetailView(recipe: recipe)
 //        }
@@ -83,7 +87,12 @@ struct RecipeCardView: View {
 //generate preview
 struct RecipeCardView_Previews: PreviewProvider {
     static var previews: some View {
-        RecipeCardView(recipe: recipesData[0])
-            .previewLayout(.sizeThatFits)
+//        RecipeCardView(recipe: recipesData[0])
+//            .previewLayout(.sizeThatFits)
+        HomeView(
+            //headers: headersData,
+            //facts: factsData,
+            recipes: recipesData
+        )
     }
 }

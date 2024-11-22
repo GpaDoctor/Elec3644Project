@@ -40,9 +40,9 @@ let recipesData: [Recipe] = [
     ),
     Recipe(
         chef: "Harry Potter",
-      title: "Avocado Bacon Toast",
+      title: "Grilled Сheese and tomato Sandwich",
       headline: "The best toastie you'll ever make.",
-      image: "avocado-toast-bacon",
+      image: "sanwitch",
       rating: 5,
       serves: 2,
       preparation: 5,
