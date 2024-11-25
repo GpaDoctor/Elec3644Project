@@ -10,11 +10,13 @@ import SwiftUI
 @main
 struct CookingMasterApp: App {
     let persistenceController = PersistenceController.shared
+    @StateObject private var locationManager = LocationManager()
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            AppView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
+                .environmentObject(locationManager)
         }
     }
 }

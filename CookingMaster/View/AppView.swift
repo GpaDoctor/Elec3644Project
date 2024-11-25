@@ -10,6 +10,8 @@ import SwiftUI
 
 struct AppView: View {
     @State private var selectedTab = 0
+    @StateObject private var locationManager = LocationManager()
+    
     var body: some View {
         TabView (selection: $selectedTab){
             HomeView()
@@ -25,6 +27,7 @@ struct AppView: View {
                 }
                 .tag(1)
             MapView()
+                .environmentObject(locationManager)
                 .tabItem {
                     Image(selectedTab == 2 ? "MapSelected" : "Map")
                     Text("Map")

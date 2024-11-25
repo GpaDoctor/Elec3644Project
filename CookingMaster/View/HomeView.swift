@@ -12,7 +12,6 @@ struct HomeView: View {
     
     //properties
     var recipes: [Recipe] = recipesData
-    //@StateObject var homeData: HomeData = HowviewModel()
 
     
     var body: some View {
