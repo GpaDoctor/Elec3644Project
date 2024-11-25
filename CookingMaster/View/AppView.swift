@@ -18,7 +18,7 @@ struct AppView: View {
                     Text("Home")
                 }
                 .tag(0)
-            MenuView()
+            MenuView(menus: menuData)
                 .tabItem {
                     Image(selectedTab == 1 ? "MenuSelected" : "Menu")
                     Text("Menu")
