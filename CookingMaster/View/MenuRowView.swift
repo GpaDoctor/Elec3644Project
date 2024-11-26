@@ -16,13 +16,6 @@ struct MenuRowView: View {
     
     var body: some View {
         HStack{
-//            Image(menu.dish.first!.image)
-//                .resizable()
-//                .scaledToFill()
-//                .frame(width: 100, height: 100)
-//                .cornerRadius(10)
-//                .clipped()
-            // Safely unwrap the first recipe's image
                         if let firstRecipe = menu.dish.first {
                             Image(firstRecipe.image)
                                 .resizable()
@@ -62,27 +55,9 @@ struct MenuRowView: View {
                     )
                     .padding(.vertical, 10)
                     Spacer()
-                    Button{
-                        
-                    } label:{
-                        Text("View")
-                            .font(.title3)
-                            .fontWeight(.bold)
-                            .foregroundColor(.black)
-                            .padding(5)
-                            .background(
-                                RoundedRectangle(cornerRadius: 10)
-                                    .fill(Color.colorGreenAdaptive.opacity(0.3))
-                            )
-                            
-                            
-                    }
                 }
             }
         }
-//        .background(Color.white)
-//        .cornerRadius(12)
-//        .shadow(color: Color("ColorBlackTransparentLight"), radius: 8, x: 0, y: 0)
     }
 }
 

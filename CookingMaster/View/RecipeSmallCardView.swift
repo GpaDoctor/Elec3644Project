@@ -11,6 +11,9 @@ import SwiftUI
 struct RecipeSmallCardView: View {
     //properties
     var recipe: Recipe
+    @State var showModel: Bool = false
+    var haptics = UIImpactFeedbackGenerator(style: .heavy)
+
     
     var body: some View {
         HStack{
@@ -57,6 +60,13 @@ struct RecipeSmallCardView: View {
             .background(Color.white)
             .cornerRadius(12)
             .shadow(color: Color("ColorBlackTransparentLight"), radius: 8, x: 0, y: 0)
+            .onTapGesture {
+                haptics.impactOccurred()
+                self.showModel = true
+            }
+            .sheet(isPresented: $showModel) {
+                RecipeDetail(recipe: recipe)
+            }
         }
     }
 

@@ -77,6 +77,9 @@ struct RecipeCardView: View {
             haptics.impactOccurred()
             self.showModel = true
         }
+        .sheet(isPresented: $showModel){
+            RecipeDetail(recipe: recipe)
+        }
 
 //        .sheet(isPresented: $showModal) {
 //            RecipeDetailView(recipe: recipe)
