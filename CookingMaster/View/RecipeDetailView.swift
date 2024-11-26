@@ -94,7 +94,7 @@ struct RecipeDetail: View {
                             .opacity(pulsate ? 1 : 0.6)
                             .scaleEffect(pulsate ? 1.2 : 0.8,
                                          anchor: .center)
-                            .animation(Animation.easeInOut(duration: 1.5).repeatForever(autoreverses: true))
+                            .animation(.easeInOut(duration: 1.5), value: pulsate) // Updated animation
                 })
                     .padding(.trailing, 20)
                     .padding(.top, 24)

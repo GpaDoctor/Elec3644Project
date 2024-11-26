@@ -38,8 +38,7 @@ struct MenuRowView: View {
             
             VStack(alignment: .leading, spacing: 5){
                 Text(menu.name)
-                    .font(.title3)
-                    .fontWeight(.bold)
+                    .font(.system(.title3, design: .serif))
                     .padding(.bottom,15)
                 HStack{
                     DatePicker("Date",
