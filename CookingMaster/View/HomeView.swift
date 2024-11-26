@@ -64,7 +64,7 @@ struct HomeView: View {
                     RecipeCardView(recipe: item)
                 }
             }
-            .frame(maxWidth: 640)
+            //.frame(maxWidth: 640)
             .padding(.horizontal)
             
             //Footer

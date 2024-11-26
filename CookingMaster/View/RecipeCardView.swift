@@ -22,8 +22,8 @@ struct RecipeCardView: View {
                 .resizable()
                 .scaledToFill()
                 //.scaledToFill()
-                    //.frame(width: 410, height: 250)
-                    //.clipped()
+                .frame( height: 250)
+                    .clipped()
   //                  .foregroundStyle(.tint)
                 .overlay(
                     HStack {
@@ -67,6 +67,7 @@ struct RecipeCardView: View {
                 
             }
             .padding()
+            
             .padding(.bottom, 12)
         }
         
@@ -93,8 +94,6 @@ struct RecipeCardView_Previews: PreviewProvider {
 //        RecipeCardView(recipe: recipesData[0])
 //            .previewLayout(.sizeThatFits)
         HomeView(
-            //headers: headersData,
-            //facts: factsData,
             recipes: recipesData
         )
     }

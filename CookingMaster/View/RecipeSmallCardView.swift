@@ -28,12 +28,11 @@ struct RecipeSmallCardView: View {
             VStack(alignment: .leading, spacing: 5){
                 
                 Text(recipe.title )
-                    .font(.title3)
-                    .fontWeight(.bold)
+                    .font(.system(.title, design: .serif))
                     .padding(.bottom,15)
                 HStack{
                     Text("\(recipe.preparation)min")
-                        .font(.title3)
+                        .font(.headline)
                         .fontWeight(.bold)
                         .foregroundColor(.black)
                         .padding(5)
