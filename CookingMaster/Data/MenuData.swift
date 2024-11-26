@@ -18,10 +18,5 @@ let menuData: [Menu] = [
         name: "Date With Jaden",
         dishID: [recipesData[1].id],
         date: Date()
-        ),
-    Menu(
-            name: "Empty Menu",
-            dishID: [], // No recipes
-            date: Date()
         )
 ]
