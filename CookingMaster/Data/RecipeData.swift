@@ -123,8 +123,157 @@ let recipesData: [Recipe] = [
             "cilantro, to taste",
             "lime, to taste"
         ],
-        category: "Italian")
+        category: "Italian"),
     
+    Recipe(
+//        id: UUID(),
+        chef: "GpaDoctor",
+        title: "Classic Margherita Pizza",
+        headline: "A simple yet delicious classic Margherita Pizza made with fresh ingredients and a homemade crust.",
+        image: "MargheritaPizza",
+        rating: 4,
+        serves: 4,
+        preparation: 20,
+        cooking: 15,
+        instructions: [
+            "Prepare the pizza dough and let it rise.",
+            "Preheat the oven to 475°F (245°C).",
+            "Roll out the dough on a floured surface.",
+            "Spread tomato sauce evenly over the dough.",
+            "Top with fresh mozzarella slices and basil leaves.",
+            "Drizzle with olive oil and season with salt and pepper.",
+            "Bake for 12-15 minutes until the crust is golden brown.",
+            "Slice and serve hot."
+        ],
+        ingredients: [
+            "1 batch pizza dough",
+            "1 cup tomato sauce",
+            "8 oz fresh mozzarella, sliced",
+            "Fresh basil leaves",
+            "2 tablespoons olive oil",
+            "Salt and pepper to taste"
+        ],
+        category: "Italian"
+    ),
+    
+    Recipe(
+//    id: UUID(),
+     chef: "GpaDoctor",
+     title: "Spaghetti Carbonara",
+     headline: "A classic Italian pasta dish made with eggs, cheese, pancetta, and pepper.",
+     image: "SpaghettiCarbonara",
+     rating: 5,
+     serves: 4,
+     preparation: 15,
+     cooking: 20,
+     instructions: [
+         "Cook the spaghetti according to package instructions.",
+         "In a separate pan, cook the pancetta until crispy.",
+         "In a bowl, whisk together eggs and grated Parmesan cheese.",
+         "Drain the spaghetti and return it to the pot.",
+         "Quickly mix in the egg and cheese mixture, stirring constantly.",
+         "Add the pancetta and season with black pepper.",
+         "Serve immediately with extra Parmesan cheese."
+     ],
+     ingredients: [
+         "400g spaghetti",
+         "150g pancetta, diced",
+         "2 large eggs",
+         "1 cup grated Parmesan cheese",
+         "Black pepper to taste"
+     ],
+     category: "Italian"
+ ),
+    Recipe(
+//    id: UUID(),
+    chef: "GpaDoctor",
+    title: "Chicken Tikka Masala",
+    headline: "A popular Indian dish with marinated chicken cooked in a creamy tomato sauce.",
+    image: "ChickenTikkaMasala",
+    rating: 5,
+    serves: 4,
+    preparation: 30,
+    cooking: 40,
+    instructions: [
+        "Marinate the chicken with yogurt, lemon juice, and spices for at least 1 hour.",
+        "Grill or cook the chicken until fully cooked.",
+        "In a pan, sauté onions, garlic, and ginger until fragrant.",
+        "Add tomato puree and cook until thickened.",
+        "Stir in cream and spices, then add the cooked chicken.",
+        "Simmer for 10-15 minutes until the sauce is well combined.",
+        "Serve hot with rice or naan."
+    ],
+    ingredients: [
+        "500g chicken breast, cubed",
+        "1 cup yogurt",
+        "2 tablespoons lemon juice",
+        "2 teaspoons garam masala",
+        "1 teaspoon turmeric",
+        "1 teaspoon cumin",
+        "1 teaspoon paprika",
+        "1 onion, chopped",
+        "2 cloves garlic, minced",
+        "1 tablespoon ginger, minced",
+        "1 cup tomato puree",
+        "1 cup heavy cream",
+        "Salt and pepper to taste"
+    ],
+    category: "Indian"
+),
+    
+    Recipe(
+//    id: UUID(),
+    chef: "GpaDoctor",
+    title: "Beef Tacos",
+    headline: "Delicious and easy beef tacos with a variety of toppings.",
+    image: "BeefTacos",
+    rating: 2,
+    serves: 4,
+    preparation: 15,
+    cooking: 20,
+    instructions: [
+        "Cook ground beef in a pan until browned.",
+        "Add taco seasoning and water, simmer until thickened.",
+        "Warm the taco shells in the oven.",
+        "Fill the taco shells with beef and your favorite toppings.",
+        "Serve immediately."
+    ],
+    ingredients: [
+        "500g ground beef",
+        "1 packet taco seasoning",
+        "1/2 cup water",
+        "8 taco shells",
+        "Toppings: shredded lettuce, diced tomatoes, shredded cheese, sour cream, salsa"
+    ],
+    category: "Mexican"
+),
+Recipe(
+//    id: UUID(),
+    chef: "GpaDoctor",
+    title: "Teriyaki Salmon",
+    headline: "A flavorful and healthy salmon dish with a sweet and savory teriyaki glaze.",
+    image: "TeriyakiSalmon",
+    rating: 3,
+    serves: 4,
+    preparation: 10,
+    cooking: 20,
+    instructions: [
+        "Preheat the oven to 400°F (200°C).",
+        "In a bowl, mix soy sauce, honey, garlic, and ginger to make the teriyaki sauce.",
+        "Place the salmon fillets on a baking sheet and brush with the teriyaki sauce.",
+        "Bake for 15-20 minutes until the salmon is cooked through.",
+        "Serve with steamed rice and vegetables."
+    ],
+    ingredients: [
+        "4 salmon fillets",
+        "1/4 cup soy sauce",
+        "2 tablespoons honey",
+        "2 cloves garlic, minced",
+        "1 tablespoon ginger, minced",
+        "Steamed rice and vegetables for serving"
+    ],
+    category: "Japanese"
+)
 //    Recipe(
 //        chef: "Gordon",
 //      title: "",
