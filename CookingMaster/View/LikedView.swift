@@ -45,7 +45,7 @@ struct LikedView: View {
                     } else {
                         LazyVGrid(columns: gridColumns, spacing: 10) {
                             ForEach(filteredRecipes) { recipe in
-                                NavigationLink(destination: RecipeDetail(recipe: recipe)) {
+                                NavigationLink(destination: RecipeDetailView(recipe: recipe)) {
                                     RecipeGridItem(recipe: recipe)
                                 }
                             }

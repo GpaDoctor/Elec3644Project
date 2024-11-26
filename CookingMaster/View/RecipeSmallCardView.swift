@@ -64,7 +64,7 @@ struct RecipeSmallCardView: View {
                 self.showModel = true
             }
             .sheet(isPresented: $showModel) {
-                RecipeDetail(recipe: recipe)
+                RecipeDetailView(recipe: recipe)
             }
         }
     }

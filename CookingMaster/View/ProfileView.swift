@@ -210,7 +210,7 @@ struct RecipeGridView: View {
             } else {
                 LazyVGrid(columns: columns, spacing: 10) {
                     ForEach(myRecipes) { recipe in
-                        NavigationLink(destination: RecipeDetail(recipe: recipe)) {
+                        NavigationLink(destination: RecipeDetailView(recipe: recipe)) {
                             RecipeGridItem(recipe: recipe)
                         }
                     }
