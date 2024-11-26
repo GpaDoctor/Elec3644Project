@@ -16,8 +16,9 @@ struct CookingMasterApp: App {
         WindowGroup {
             SplashScreenView()
 //            AppView()
-//                .environment(\.managedObjectContext, persistenceController.container.viewContext)
-//                .environmentObject(locationManager)
+                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+            
+                .environmentObject(locationManager)
         }
     }
 }

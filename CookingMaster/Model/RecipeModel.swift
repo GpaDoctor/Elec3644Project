@@ -20,6 +20,7 @@ struct Recipe: Identifiable {
     var cooking: Int
     var instructions: [String]
     var ingredients: [String]
+    var category: String 
 }
 
 

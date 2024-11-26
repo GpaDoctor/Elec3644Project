@@ -46,7 +46,8 @@ let recipesData: [Recipe] = [
         "¼ cup white caster sugar(50 g)",
         "¼ cup rice vinegar(50 mL)",
         "2 tablespoons ketchup"
-      ]
+      ],
+        category: "Italian"
     ),
     
     
@@ -83,7 +84,8 @@ let recipesData: [Recipe] = [
         "15 oz mascarpone cheese(450 g)",
         "1 tablespoon espresso powder",
         "1 teaspoon vanilla extract"
-      ]
+      ],
+        category: "Italian"
     ),
     
     
@@ -120,8 +122,8 @@ let recipesData: [Recipe] = [
             "16 corn tortillas",
             "cilantro, to taste",
             "lime, to taste"
-    ]),
-    
+        ],
+        category: "Italian")
     
 //    Recipe(
 //        chef: "Gordon",
