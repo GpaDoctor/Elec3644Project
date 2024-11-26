@@ -14,9 +14,10 @@ struct CookingMasterApp: App {
 
     var body: some Scene {
         WindowGroup {
-            AppView()
-                .environment(\.managedObjectContext, persistenceController.container.viewContext)
-                .environmentObject(locationManager)
+            SplashScreenView()
+//            AppView()
+//                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+//                .environmentObject(locationManager)
         }
     }
 }

@@ -17,9 +17,17 @@ struct ContentView: View {
     private var items: FetchedResults<Item>
     
     var body: some View {
-        
-        Text("Hellow World")
-        
+//        ZStack{
+//            Color.colorGreenMedium
+//                .ignoresSafeArea()
+//            Text("Cooking Master")
+//                .font(.system(size:30))
+//                .fontWeight(.heavy)
+//                .foregroundColor(Color(hue: 0.001, saturation: 0.589, brightness: 0.235))
+                
+                
+//        }
+        Text("Hello world")
     }
     
 }
