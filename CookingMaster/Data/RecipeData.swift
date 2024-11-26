@@ -38,6 +38,7 @@ let recipesData: [Recipe] = [
         "Loaf of your favourite bread, sliced"
       ]
     ),
+    
     Recipe(
         chef: "Harry Potter",
       title: "Grilled Сheese and tomato Sandwich",
@@ -59,5 +60,18 @@ let recipesData: [Recipe] = [
         "1 avocado, thickly sliced",
         "2 tbs butter"
       ]
-    )
+    ),
+    
+    Recipe(
+        chef: <#T##String#>,
+        id: <#T##arg#>,
+        title: <#T##String#>,
+        headline: <#T##String#>,
+        image: <#T##String#>,
+        rating: <#T##Int#>,
+        serves: <#T##Int#>,
+        preparation: <#T##Int#>,
+        cooking: <#T##Int#>,
+        instructions: <#T##[String]#>,
+        ingredients: <#T##[String]#>)
 ]
