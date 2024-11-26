@@ -11,10 +11,12 @@ import SwiftUI
 struct Menu: Identifiable, Hashable {
     var id = UUID()
     var name: String
-    var dishID: UUID
+    var dishID: [UUID]
     var date: Date
-    var dish: Recipe? {
-        recipesData.first { $0.id == dishID }
+    var dish: [Recipe]{
+        dishID.compactMap{dishIDs in
+            recipesData.first{$0.id == dishIDs}
+        }
     }
     // Conformance to `Hashable`
     func hash(into hasher: inout Hasher) {
