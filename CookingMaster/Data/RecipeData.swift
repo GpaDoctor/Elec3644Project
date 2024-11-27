@@ -48,7 +48,8 @@ let recipesData: [Recipe] = [
         "¼ cup rice vinegar(50 mL)",
         "2 tablespoons ketchup"
       ],
-        category: "Italian"
+        category: "Asian",
+        tags: ["Asian Cuisine", "Sweet and Sour", "Pork Recipe", "Quick and Easy", "Dinner", "Homemade", "Comfort Food", "Tangy Sauce", "Family Meal", "Street Food"]
     ),
     
     
@@ -87,7 +88,8 @@ let recipesData: [Recipe] = [
         "1 tablespoon espresso powder",
         "1 teaspoon vanilla extract"
       ],
-        category: "Italian"
+        category: "Italian",
+        tags: ["Italian", "Dessert", "Brownie", "Tiramisu", "Chocolate", "Coffee", "Creamy", "Sweet Treat", "Baking", "Homemade"]
     ),
     
     
@@ -126,7 +128,8 @@ let recipesData: [Recipe] = [
             "cilantro, to taste",
             "lime, to taste"
         ],
-        category: "Italian"),
+        category: "Italian",
+        tags: ["Mexican", "Dinner", "Fish Tacos", "Quick and Easy", "Seafood", "Healthy", "Crispy", "Homemade", "Family Meal", "Street Food"]),
     
     Recipe(
         id: UUID(),
@@ -156,7 +159,8 @@ let recipesData: [Recipe] = [
             "2 tablespoons olive oil",
             "Salt and pepper to taste"
         ],
-        category: "Italian"
+        category: "Italian",
+        tags: ["Italian", "Pizza", "Vegetarian", "Homemade", "Classic", "Quick and Easy", "Comfort Food", "Family Meal", "Baking", "Fresh Ingredients"]
     ),
     
     Recipe(
@@ -185,7 +189,8 @@ let recipesData: [Recipe] = [
          "1 cup grated Parmesan cheese",
          "Black pepper to taste"
      ],
-     category: "Italian"
+     category: "Italian",
+    tags: ["Italian", "Pasta", "Classic", "Quick and Easy", "Comfort Food", "Dinner", "Homemade", "Cheesy", "Family Meal", "Traditional"]
  ),
     Recipe(
     id: UUID(),
@@ -221,7 +226,8 @@ let recipesData: [Recipe] = [
         "1 cup heavy cream",
         "Salt and pepper to taste"
     ],
-    category: "Indian"
+    category: "Indian",
+    tags: ["Indian", "Chicken", "Spicy", "Creamy", "Dinner", "Comfort Food", "Homemade", "Traditional", "Marinated", "Family Meal"]
 ),
     
     Recipe(
@@ -248,7 +254,8 @@ let recipesData: [Recipe] = [
         "8 taco shells",
         "Toppings: shredded lettuce, diced tomatoes, shredded cheese, sour cream, salsa"
     ],
-    category: "Mexican"
+    category: "Mexican",
+    tags: ["Mexican", "Tacos", "Beef", "Quick and Easy", "Dinner", "Comfort Food", "Homemade", "Family Meal", "Street Food", "Toppings"]
 ),
 Recipe(
     id: UUID(),
@@ -275,7 +282,8 @@ Recipe(
         "1 tablespoon ginger, minced",
         "Steamed rice and vegetables for serving"
     ],
-    category: "Japanese"
+    category: "Japanese",
+    tags: ["Japanese", "Salmon", "Teriyaki", "Healthy", "Dinner", "Quick and Easy", "Seafood", "Homemade", "Family Meal", "Glazed"]
 )
 //    Recipe(
 //        chef: "Gordon",

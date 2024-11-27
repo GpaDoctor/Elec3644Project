@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct AddRecipeView: View {
     @Environment(\.managedObjectContext) private var viewContext
@@ -147,7 +148,8 @@ struct AddRecipeView: View {
             cooking: cooking,
             instructions: instructions,
             ingredients: ingredients,
-            category: category
+            category: category,
+            tags: []
         )
 
         // Save the recipe and the image to Core Data

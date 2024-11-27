@@ -41,7 +41,9 @@ struct RecipeListView: View{
                 cooking: Int(entity.cooking),
                 instructions: entity.instructions?.components(separatedBy: ",") ?? [],
                 ingredients: entity.ingredients?.components(separatedBy: ",") ?? [],
-                category: entity.category ?? ""
+                category: entity.category ?? "",
+                tags: entity.tags?.components(separatedBy: ",") ?? []
+                
             )
         }
     

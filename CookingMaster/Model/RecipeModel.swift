@@ -21,5 +21,6 @@ struct Recipe: Identifiable {
     let instructions: [String]
     let ingredients: [String]
     let category: String
+    var tags: [String]
 }
 
