@@ -75,7 +75,7 @@ struct RecipeDetailView: View {
                     Button(action: {
                         presentationMode.wrappedValue.dismiss()
                     }) {
-                        Image(systemName: "chevron.down.circle.fill")
+                        Image(systemName: "chevron.left.circle.fill")
                             .font(.title)
                             .foregroundColor(.white)
                             .shadow(radius: 4)

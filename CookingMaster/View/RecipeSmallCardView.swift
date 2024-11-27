@@ -50,9 +50,10 @@ struct RecipeSmallCardView: View {
             
             VStack(alignment: .leading, spacing: 5){
                 
-                Text(recipe.title )
-                    .font(.system(.title, design: .serif))
+                Text(recipe.title)
+                    .modifier(TitleModifier2())
                     .padding(.bottom,15)
+                    .lineLimit(2)
                 HStack{
                     Text("\(recipe.preparation)min")
                         .font(.headline)
@@ -90,8 +91,17 @@ struct RecipeSmallCardView: View {
                 RecipeDetailView(recipe: recipe)
             }
         }
+    
     }
-
+struct TitleModifier2: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .font(.system(.title, design: .serif))
+            .fontWeight(.bold)
+            .foregroundColor(.black)
+                .padding(8)
+    }
+}
     
     struct RecipSmallCard_Previes: PreviewProvider {
         static var previews: some View{

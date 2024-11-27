@@ -135,8 +135,7 @@ struct RecipeCardView: View {
                 VStack(alignment: .leading, spacing: 12) {
                     // Title
                     Text(recipe.title)
-                        .font(.system(.title2, design: .serif))
-                        .fontWeight(.bold)
+                        .modifier(TitleModifier1())
                         .lineLimit(2)
 
                     // Headline
@@ -166,7 +165,15 @@ struct RecipeCardView: View {
         )
     }
 }
-
+struct TitleModifier1: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .font(.system(.title2, design: .serif))
+            .fontWeight(.bold)
+            .foregroundColor(.black)
+                .padding(8)
+    }
+}
 // Generate preview
 struct RecipeCardView_Previews: PreviewProvider {
     static var previews: some View {
