@@ -129,13 +129,17 @@ struct AddRecipeView: View {
 
     // Save Recipe to Core Data
     private func saveRecipe() {
-        guard !title.isEmpty, !headline.isEmpty, let image = image else { return }
+        guard !title.isEmpty, !headline.isEmpty, let image = image else {
+            print("Please provide all required fields.")
+            return
+        }
 
+        // Create a new Recipe object
         let newRecipe = Recipe(
             id: UUID(),
             title: title,
             headline: headline,
-            image: "",
+            image: "", // Placeholder, the file name will be set below
             chef: chef,
             rating: rating,
             serves: serves,
@@ -146,6 +150,7 @@ struct AddRecipeView: View {
             category: category
         )
 
+        // Save the recipe and the image to Core Data
         PersistenceController.shared.saveRecipe(recipe: newRecipe, image: image)
         presentationMode.wrappedValue.dismiss()
     }

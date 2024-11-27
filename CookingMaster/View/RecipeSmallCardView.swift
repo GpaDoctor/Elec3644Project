@@ -17,12 +17,35 @@ struct RecipeSmallCardView: View {
     
     var body: some View {
         HStack{
-            Image(recipe.image)
-                .resizable()
-                .scaledToFill()
-                .frame(width: 110, height: 110)
-                .cornerRadius(10)
-                .clipped()
+            // Check if the image is stored in the Documents Directory
+                    if let loadedImage = PersistenceController.shared.loadImageFromDocuments(fileName: recipe.image) {
+                        // Dynamically loaded image from file
+                        Image(uiImage: loadedImage)
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: 110, height: 110)
+                            .cornerRadius(10)
+                            .clipped()
+                    } else if UIImage(named: recipe.image) != nil {
+                        // Image from Asset Catalog
+                        Image(recipe.image)
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: 110, height: 110)
+                            .cornerRadius(10)
+                            .clipped()
+                    } else {
+                        // Fallback if no image is found
+                        Rectangle()
+                            .fill(Color.gray.opacity(0.3))
+                            .frame(width: 110, height: 110)
+                            .cornerRadius(10)
+                            .overlay(
+                                Text("No Image")
+                                    .font(.caption)
+                                    .foregroundColor(.white)
+                            )
+                    }
             
             
             VStack(alignment: .leading, spacing: 5){

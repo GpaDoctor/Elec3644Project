@@ -1,8 +1,8 @@
 
 
-
-
-
+//
+//created by Cheung, Ching Pan (3036101721)
+//
 
 
 import CoreData
@@ -25,19 +25,19 @@ struct PersistenceController {
         container.viewContext.automaticallyMergesChangesFromParent = true
         
         // Debugging: Check if the entity exists
-            if let entityDescription = NSEntityDescription.entity(forEntityName: "RecipeEntity", in: container.viewContext) {
-                print("Entity found: \(entityDescription)")
-            } else {
-                print("Error: RecipeEntity not found in Core Data model.")
-            }
+        if let entityDescription = NSEntityDescription.entity(forEntityName: "RecipeEntity", in: container.viewContext) {
+            print("Entity found: \(entityDescription)")
+        } else {
+            print("Error: RecipeEntity not found in Core Data model.")
+        }
     }
-
-
+    
+    
     @MainActor
     static let preview: PersistenceController = {
         let result = PersistenceController(inMemory: true)
         let viewContext = result.container.viewContext
-
+        
         for i in 0..<10 {
             let recipe = RecipeEntity(context: viewContext)
             recipe.id = UUID()
@@ -53,7 +53,7 @@ struct PersistenceController {
             recipe.ingredients = "Ingredient1,Ingredient2,Ingredient3"
             recipe.instructions = "Step1,Step2,Step3"
         }
-
+        
         do {
             try viewContext.save()
         } catch {
@@ -61,22 +61,22 @@ struct PersistenceController {
         }
         return result
     }()
-
+    
     var container: NSPersistentContainer
-
+    
     // MARK: - Fetch Recipes
     func fetchRecipes() -> [Recipe] {
         let context = container.viewContext
-
+        
         // Debugging: Check if the entity exists
         if let entityDescription = NSEntityDescription.entity(forEntityName: "RecipeEntity", in: context) {
             print("Entity found: \(entityDescription)")
         } else {
             fatalError("Error: RecipeEntity not found in Core Data model.")
         }
-
+        
         let fetchRequest: NSFetchRequest<RecipeEntity> = RecipeEntity.fetchRequest()
-
+        
         do {
             let recipeEntities = try context.fetch(fetchRequest)
             return recipeEntities.map { entity in
@@ -104,7 +104,7 @@ struct PersistenceController {
     func saveRecipe(recipe: Recipe, image: UIImage) {
         let context = container.viewContext
         let newRecipe = RecipeEntity(context: context)
-
+        
         newRecipe.id = recipe.id
         newRecipe.title = recipe.title
         newRecipe.headline = recipe.headline
@@ -117,7 +117,7 @@ struct PersistenceController {
         newRecipe.instructions = recipe.instructions.joined(separator: ",")
         newRecipe.ingredients = recipe.ingredients.joined(separator: ",")
         newRecipe.category = recipe.category
-
+        
         do {
             try context.save()
             print("Recipe saved successfully!")
@@ -125,12 +125,12 @@ struct PersistenceController {
             print("Failed to save recipe: \(error.localizedDescription)")
         }
     }
-
+    
     // MARK: - Delete Recipe
     func deleteRecipe(_ recipeEntity: RecipeEntity) {
         let context = container.viewContext
         context.delete(recipeEntity)
-
+        
         do {
             try context.save()
             print("Recipe deleted successfully!")
@@ -138,35 +138,40 @@ struct PersistenceController {
             print("Failed to delete recipe: \(error.localizedDescription)")
         }
     }
-
+    
     // MARK: - Save Image to Documents Directory
     func saveImageToDocuments(image: UIImage) -> String {
-        let fileName = UUID().uuidString + ".jpg" // Generate a unique file name
+        let fileName = UUID().uuidString + ".jpg"
         let fileManager = FileManager.default
-
-        if let data = image.jpegData(compressionQuality: 0.8) {
-            let url = fileManager.urls(for: .documentDirectory, in: .userDomainMask)[0]
-                .appendingPathComponent(fileName)
-
+        let directory = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first!
+        let fileURL = directory.appendingPathComponent(fileName)
+        
+        if let imageData = image.jpegData(compressionQuality: 0.8) {
             do {
-                try data.write(to: url)
-                print("Image saved successfully to \(url.path)")
+                try imageData.write(to: fileURL)
+                print("Image saved to: \(fileURL.path)")
             } catch {
                 print("Failed to save image: \(error.localizedDescription)")
             }
+        } else {
+            print("Failed to convert UIImage to JPEG data")
         }
+        
         return fileName
     }
-
+    
     // MARK: - Load Image from Documents Directory
     func loadImageFromDocuments(fileName: String) -> UIImage? {
         let fileManager = FileManager.default
-        let url = fileManager.urls(for: .documentDirectory, in: .userDomainMask)[0]
-            .appendingPathComponent(fileName)
-
-        if let data = try? Data(contentsOf: url) {
+        let directory = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first!
+        let fileURL = directory.appendingPathComponent(fileName)
+        
+        do {
+            let data = try Data(contentsOf: fileURL)
             return UIImage(data: data)
+        } catch {
+            print("Error loading image from documents: \(error.localizedDescription)")
+            return nil
         }
-        return nil
     }
 }
