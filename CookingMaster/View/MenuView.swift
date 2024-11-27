@@ -37,6 +37,9 @@ struct MenuView: View {
                             }
 
             }
+            .sheet(isPresented: $showMenu) {
+                RecipeListView()
+                        }
         }
     private func addMenue(){
         //add menu function

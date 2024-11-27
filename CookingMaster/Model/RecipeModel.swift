@@ -9,18 +9,17 @@ import Foundation
 import SwiftUI
 
 struct Recipe: Identifiable {
-    var chef: String
-    var id = UUID()
-    var title: String
-    var headline: String
-    var image: String
-    var rating: Int
-    var serves: Int
-    var preparation: Int
-    var cooking: Int
-    var instructions: [String]
-    var ingredients: [String]
-    var category: String 
+    let id: UUID
+    let title: String
+    let headline: String
+    let image: String
+    let chef: String
+    let rating: Int
+    let serves: Int
+    let preparation: Int
+    let cooking: Int
+    let instructions: [String]
+    let ingredients: [String]
+    let category: String
 }
-
 

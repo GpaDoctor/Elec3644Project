@@ -11,37 +11,61 @@ import SwiftUI
 struct AppView: View {
     @State private var selectedTab = 0
     @StateObject private var locationManager = LocationManager()
+    @State private var showAddRecipeView = false
+
     
     var body: some View {
-        TabView (selection: $selectedTab){
-            HomeView()
-                .tabItem {
-                    Image(selectedTab == 0 ? "Homeselected" : "Home")
-                    Text("Home")
+        ZStack{
+            TabView (selection: $selectedTab){
+                HomeView()
+                    .tabItem {
+                        Image(selectedTab == 0 ? "Homeselected" : "Home")
+                        Text("Home")
+                    }
+                    .tag(0)
+                MenuView(menus: menuData)
+                    .tabItem {
+                        Image(selectedTab == 1 ? "MenuSelected" : "Menu")
+                        Text("Menu")
+                    }
+                    .tag(1)
+                MapView()
+                    .environmentObject(locationManager)
+                    .tabItem {
+                        Image(selectedTab == 2 ? "MapSelected" : "Map")
+                        Text("Map")
+                    }
+                    .tag(2)
+                ProfileView()
+                    .tabItem {
+                        Image(selectedTab == 3 ? "ProfileSelected" : "Profile")
+                        Text("Profile")
+                    }
+                    .tag(3)
+            }
+            .accentColor(.green) // Change the color of text to green
+            VStack {
+                Spacer()
+                HStack (alignment: .center){
+                    Button(action: {
+                        showAddRecipeView = true
+                        print("Floating button tapped!")
+                    }) {
+                        Image(systemName: "plus")
+                            .resizable()
+                            .frame(width: 24, height: 24)
+                            .foregroundColor(.colorBlackTransparentDark)
+                            .padding()
+                            .background(Circle().fill(Color.green))
+                            .shadow(radius: 10)
+                    }
                 }
-                .tag(0)
-            MenuView(menus: menuData)
-                .tabItem {
-                    Image(selectedTab == 1 ? "MenuSelected" : "Menu")
-                    Text("Menu")
-                }
-                .tag(1)
-            MapView()
-                .environmentObject(locationManager)
-                .tabItem {
-                    Image(selectedTab == 2 ? "MapSelected" : "Map")
-                    Text("Map")
-                }
-                .tag(2)
-            ProfileView()
-                .tabItem {
-                    Image(selectedTab == 3 ? "ProfileSelected" : "Profile")
-                    Text("Profile")
-                }
-                .tag(3)
+                .padding(25)
+            }
+            .ignoresSafeArea(.keyboard, edges: .bottom)          .sheet(isPresented: $showAddRecipeView) {
+                AddRecipeView()
+            }
         }
-        .accentColor(.green) // Change the color of text to green
-
     }
 }
 

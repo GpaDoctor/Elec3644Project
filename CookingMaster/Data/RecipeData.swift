@@ -10,10 +10,11 @@ import SwiftUI
 
 let recipesData: [Recipe] = [
     Recipe(
-        chef: "Jaden C",
+        id:UUID(),
       title: "Sweet And Sour Pork",
       headline: "Experience a flavor explosion with this Sweet and Sour Pork recipe that'll transport your taste buds straight to a bustling Asian street market. This dish combines tender pork with a tangy, vibrant sauce for a meal that's sure to impress your friends and family.",
       image: "SweetAndSourPork-cover",
+        chef: "Jaden C",
       rating: 5,
       serves: 2,
       preparation: 10,
@@ -52,10 +53,11 @@ let recipesData: [Recipe] = [
     
     
     Recipe(
-        chef: "Gordon",
+        id: UUID(),
       title: "Brownie Tiramisu",
       headline: "Close your eyes and take a bite of this dreamy dessert. The fudgy, chocolatey brownies mingle with the creamy, airy layers of tiramisu, creating a flavor explosion that'll transport you to an Italian cafe.",
       image: "BrownieTiramisu-cover",
+      chef: "Gordon",
       rating: 3,
       serves: 4,
       preparation: 30,
@@ -90,10 +92,11 @@ let recipesData: [Recipe] = [
     
     
     Recipe(
-        chef: "Gordon",
+        id: UUID(),
         title: "Easy Fish Tacos",
         headline: "Crispy, golden-brown fish fillets, wrapped in warm corn tortillas and topped with a delicious slaw made with shredded cabbage, red onion, and sour cream. Serve a sprinkle of fresh cilantro and lime juice!",
         image: "EasyFishTacos-cover",
+        chef: "Gordon",
         rating: 4,
         serves: 8,
         preparation: 15, //prepatation time
@@ -126,11 +129,11 @@ let recipesData: [Recipe] = [
         category: "Italian"),
     
     Recipe(
-//        id: UUID(),
-        chef: "GpaDoctor",
+        id: UUID(),
         title: "Classic Margherita Pizza",
         headline: "A simple yet delicious classic Margherita Pizza made with fresh ingredients and a homemade crust.",
         image: "MargheritaPizza",
+        chef: "GpaDoctor",
         rating: 4,
         serves: 4,
         preparation: 20,
@@ -157,11 +160,11 @@ let recipesData: [Recipe] = [
     ),
     
     Recipe(
-//    id: UUID(),
-     chef: "GpaDoctor",
+    id: UUID(),
      title: "Spaghetti Carbonara",
      headline: "A classic Italian pasta dish made with eggs, cheese, pancetta, and pepper.",
      image: "SpaghettiCarbonara",
+    chef: "GpaDoctor",
      rating: 5,
      serves: 4,
      preparation: 15,
@@ -185,11 +188,11 @@ let recipesData: [Recipe] = [
      category: "Italian"
  ),
     Recipe(
-//    id: UUID(),
-    chef: "GpaDoctor",
+    id: UUID(),
     title: "Chicken Tikka Masala",
     headline: "A popular Indian dish with marinated chicken cooked in a creamy tomato sauce.",
     image: "ChickenTikkaMasala",
+    chef: "GpaDoctor",
     rating: 5,
     serves: 4,
     preparation: 30,
@@ -222,11 +225,11 @@ let recipesData: [Recipe] = [
 ),
     
     Recipe(
-//    id: UUID(),
-    chef: "GpaDoctor",
+    id: UUID(),
     title: "Beef Tacos",
     headline: "Delicious and easy beef tacos with a variety of toppings.",
     image: "BeefTacos",
+    chef: "GpaDoctor",
     rating: 2,
     serves: 4,
     preparation: 15,
@@ -248,11 +251,11 @@ let recipesData: [Recipe] = [
     category: "Mexican"
 ),
 Recipe(
-//    id: UUID(),
-    chef: "GpaDoctor",
+    id: UUID(),
     title: "Teriyaki Salmon",
     headline: "A flavorful and healthy salmon dish with a sweet and savory teriyaki glaze.",
     image: "TeriyakiSalmon",
+    chef: "GpaDoctor",
     rating: 3,
     serves: 4,
     preparation: 10,

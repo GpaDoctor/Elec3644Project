@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CoreData
 
 @main
 struct CookingMasterApp: App {
@@ -19,6 +20,16 @@ struct CookingMasterApp: App {
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
             
                 .environmentObject(locationManager)
+                .onAppear {
+//                                    let context = persistenceController.container.viewContext
+//                                    if let entityDescription = NSEntityDescription.entity(forEntityName: "RecipeEntity", in: context) {
+//                                        print("Entity found: \(entityDescription)")
+//                                    } else {
+//                                        print("Error: RecipeEntity not found in Core Data model.")
+//                                    }
+                                }
+            
+            
         }
     }
 }
