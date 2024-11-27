@@ -138,20 +138,6 @@ struct HomeView: View {
                     }
                     .buttonStyle(PlainButtonStyle())
                     
-                    Button(action: {
-                        // Action for filter button
-                    }) {
-                        Image("Filter")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 20, height: 25)
-                            .padding(7)
-                            .background(
-                                RoundedRectangle(cornerRadius: 10)
-                                    .fill(Color.white)
-                                    .shadow(color: Color("ColorBlackTransparentLight"), radius: 5)
-                            )
-                    }
                 }
                 .padding()
                 .padding(.top, 45)

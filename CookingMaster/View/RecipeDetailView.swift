@@ -18,6 +18,8 @@ struct RecipeDetailView: View {
                 Image(recipe.image)
                     .resizable()
                     .scaledToFit()
+                    .frame(height: 500)
+                    .frame(width: 410)
 
                 Group {
                     // Title
