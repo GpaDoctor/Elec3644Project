@@ -34,7 +34,7 @@ struct AddMenuView: View {
                 List {
                     ForEach(filteredRecipes, id: \.id.uuidString) { recipe in
                         HStack {
-                            RecipeSmallCardView(recipe: recipe)
+                            RecipeCardforMenu(recipe: recipe)
                             Spacer()
                             if selectedRecipes.contains(where: { $0.id.uuidString == recipe.id.uuidString }) {
                                 Image(systemName: "checkmark.circle.fill")
