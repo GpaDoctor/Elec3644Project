@@ -11,7 +11,8 @@ struct RecipeDetailView: View {
     var recipe: Recipe
     @State private var pulsate: Bool = false
     @Environment(\.presentationMode) var presentationMode
-
+    @State private var showUpdateView = false
+    
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
             VStack(alignment: .center, spacing: 0) {
@@ -37,7 +38,7 @@ struct RecipeDetailView: View {
                                 .foregroundColor(.white)
                         )
                 }
-
+                
                 Group {
                     // Title
                     Text(recipe.title)
@@ -46,18 +47,18 @@ struct RecipeDetailView: View {
                         .multilineTextAlignment(.center)
                         .foregroundColor(Color("ColorGreenAdaptive"))
                         .padding(.top, 10)
-
+                    
                     // Rating
                     RecipeStarView(recipe: recipe)
-
+                    
                     // Cooking Info
                     RecipeCookingView(recipe: recipe)
-
+                    
                     // Ingredients
                     Text("Ingredients")
                         .fontWeight(.bold)
                         .modifier(TitleModifier())
-
+                    
                     VStack(alignment: .leading, spacing: 5) {
                         ForEach(recipe.ingredients, id: \.self) { item in
                             VStack(alignment: .leading, spacing: 5) {
@@ -68,7 +69,7 @@ struct RecipeDetailView: View {
                             }
                         }
                     }
-
+                    
                     // Start Cooking Button
                     NavigationLink(destination: RecipeInstructionsView(recipe: recipe)) {
                         Text("Start Cooking")
@@ -90,7 +91,6 @@ struct RecipeDetailView: View {
         .overlay(
             VStack {
                 HStack {
-                    Spacer()
                     Button(action: {
                         presentationMode.wrappedValue.dismiss()
                     }) {
@@ -106,15 +106,33 @@ struct RecipeDetailView: View {
                                 value: pulsate
                             )
                     }
-                    .padding(.trailing, 20)
+                    .padding(.trailing,20)
                     .padding(.top, 24)
+                    Spacer()
+                    Button {
+                        showUpdateView = true
+                    } label: {
+                        Image(systemName: "pencil")
+                            .font(.largeTitle)
+                            .foregroundColor(.white)
+                            .shadow(radius: 4)
+                            .opacity(pulsate ? 1 : 0.6)
+                    }
+                    
+                    
                 }
+                .padding(.horizontal,10)
                 Spacer()
             }
         )
         .onAppear {
             self.pulsate.toggle()
         }
+//        .sheet(isPresented: $showUpdateView) {
+//            AddRecipeView(recipeToEdit: recipe) {
+//                updatedRecipe in
+//            }
+//        }
     }
 }
 

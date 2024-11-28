@@ -32,11 +32,11 @@ struct AddMenuView: View {
                     .padding(.horizontal)
 
                 List {
-                    ForEach(filteredRecipes, id: \.id) { recipe in
+                    ForEach(filteredRecipes, id: \.id.uuidString) { recipe in
                         HStack {
                             RecipeSmallCardView(recipe: recipe)
                             Spacer()
-                            if selectedRecipes.contains(where: { $0.id == recipe.id }) {
+                            if selectedRecipes.contains(where: { $0.id.uuidString == recipe.id.uuidString }) {
                                 Image(systemName: "checkmark.circle.fill")
                                     .foregroundColor(.green)
                             }
@@ -85,13 +85,13 @@ struct AddMenuView: View {
 
     // Fetch all recipes
     private func fetchAllRecipes() {
-        let staticRecipes = recipesData 
+        let staticRecipes = recipesData
         let coreDataRecipes = PersistenceController.shared.fetchRecipes()
         allRecipes = staticRecipes + coreDataRecipes
     }
 
     private func toggleRecipeSelection(_ recipe: Recipe) {
-        if let index = selectedRecipes.firstIndex(where: { $0.id == recipe.id }) {
+        if let index = selectedRecipes.firstIndex(where: { $0.id.uuidString == recipe.id.uuidString }) {
             selectedRecipes.remove(at: index)
         } else {
             selectedRecipes.append(recipe)
@@ -101,10 +101,12 @@ struct AddMenuView: View {
     private func saveMenu() {
         guard !name.isEmpty else { return }
 
+        let ids = (selectedRecipes.map { $0.id.uuidString }).joined(separator: ",")
+        
         let newMenu = Menu(
             id: UUID(),
             name: name,
-            dishID: selectedRecipes.map { $0.id },
+            dishID: ids,
             date: date
         )
 

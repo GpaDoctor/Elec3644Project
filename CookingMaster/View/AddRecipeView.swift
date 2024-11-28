@@ -12,6 +12,7 @@ struct AddRecipeView: View {
     @Environment(\.managedObjectContext) private var viewContext
     @Environment(\.presentationMode) var presentationMode
 
+    // Properties for new or editing recipe
     @State private var title: String = ""
     @State private var headline: String = ""
     @State private var chef: String = ""
@@ -20,6 +21,8 @@ struct AddRecipeView: View {
     @State private var instructions: [String] = []
     @State private var ingredientInput: String = ""
     @State private var instructionInput: String = ""
+    @State private var tags: [String] = []
+    @State private var tagInput: String = ""
     @State private var image: UIImage? = nil
     @State private var rating: Int = 0
     @State private var serves: Int = 1
@@ -27,6 +30,9 @@ struct AddRecipeView: View {
     @State private var cooking: Int = 0
 
     @State private var showImagePicker = false
+
+    // Editing Recipe (optional)
+    var recipeToEdit: Recipe?
 
     var body: some View {
         NavigationStack {
@@ -93,6 +99,24 @@ struct AddRecipeView: View {
                     }
                 }
 
+                // Tags Section
+                Section(header: Text("Tags")) {
+                    TextField("Add Tag", text: $tagInput, onCommit: {
+                        if !tagInput.isEmpty {
+                            tags.append(tagInput)
+                            tagInput = ""
+                        }
+                    })
+                    List {
+                        ForEach(tags, id: \.self) { tag in
+                            Text(tag)
+                        }
+                        .onDelete { indexSet in
+                            tags.remove(atOffsets: indexSet)
+                        }
+                    }
+                }
+
                 // Recipe Metadata Section
                 Section(header: Text("Metadata")) {
                     Stepper(value: $rating, in: 1...5) {
@@ -115,7 +139,7 @@ struct AddRecipeView: View {
                 
                 
             }
-            .navigationTitle("Add Recipe")
+            .navigationTitle(recipeToEdit == nil ? "Add Recipe" : "Update Recipe")
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button("Cancel") {
@@ -123,43 +147,85 @@ struct AddRecipeView: View {
                     }
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button("Save") {
-                        saveRecipe()
+                    Button(recipeToEdit == nil ? "Save" : "Update") {
+                        saveOrUpdateRecipe()
                     }
                 }
             }
             .sheet(isPresented: $showImagePicker) {
                 ImagePicker(image: $image)
             }
+            .onAppear(perform: loadExistingRecipe)
         }
     }
 
-    // Save Recipe to Core Data
-    private func saveRecipe() {
-        guard !title.isEmpty, !headline.isEmpty, let image = image else {
-            print("Please provide all required fields.")
-            return
+    // Load existing recipe for editing
+    private func loadExistingRecipe() {
+        guard let recipe = recipeToEdit else { return }
+
+        title = recipe.title
+        headline = recipe.headline
+        chef = recipe.chef
+        category = recipe.category
+        ingredients = recipe.ingredients
+        instructions = recipe.instructions
+        tags = recipe.tags
+        rating = recipe.rating
+        serves = recipe.serves
+        preparation = recipe.preparation
+        cooking = recipe.cooking
+
+        if let savedImage = PersistenceController.shared.loadImageFromDocuments(fileName: recipe.image) {
+            image = savedImage
+        }
+    }
+
+    // Save or Update Recipe
+    private func saveOrUpdateRecipe() {
+        guard !title.isEmpty, !headline.isEmpty else { return }
+
+        if let recipeToEdit = recipeToEdit {
+            // Update Recipe
+            PersistenceController.shared.updateRecipe(
+                recipe: recipeToEdit,
+                updatedDetails: Recipe(
+                    id: recipeToEdit.id,
+                    title: title,
+                    headline: headline,
+                    image: recipeToEdit.image, // Keep the existing image path
+                    chef: chef,
+                    rating: rating,
+                    serves: serves,
+                    preparation: preparation,
+                    cooking: cooking,
+                    instructions: instructions,
+                    ingredients: ingredients,
+                    category: category,
+                    tags: tags
+                )
+            )
+        } else {
+            // Save New Recipe
+            if let unwrappedImage = image {
+                let newRecipe = Recipe(
+                    id: UUID(),
+                    title: title,
+                    headline: headline,
+                    image: PersistenceController.shared.saveImageToDocuments(image: unwrappedImage),
+                    chef: chef,
+                    rating: rating,
+                    serves: serves,
+                    preparation: preparation,
+                    cooking: cooking,
+                    instructions: instructions,
+                    ingredients: ingredients,
+                    category: category,
+                    tags: tags
+                )
+                PersistenceController.shared.saveRecipe(recipe: newRecipe, image: unwrappedImage)
+            }
         }
 
-        // Create a new Recipe object
-        let newRecipe = Recipe(
-            id: UUID(),
-            title: title,
-            headline: headline,
-            image: "", // Placeholder, the file name will be set below
-            chef: chef,
-            rating: rating,
-            serves: serves,
-            preparation: preparation,
-            cooking: cooking,
-            instructions: instructions,
-            ingredients: ingredients,
-            category: category,
-            tags: []
-        )
-
-        // Save the recipe and the image to Core Data
-        PersistenceController.shared.saveRecipe(recipe: newRecipe, image: image)
         presentationMode.wrappedValue.dismiss()
     }
 }

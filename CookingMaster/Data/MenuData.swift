@@ -12,13 +12,13 @@ let menuData: [Menu] = [
     Menu(
         id: UUID(),
         name: "Lunch",
-        dishID: [recipesData[0].id, recipesData[1].id],
+        dishID: [recipesData[0].id.uuidString, recipesData[1].id.uuidString].joined(separator: ","),
         date: Date()
         ),
     Menu(
         id:UUID(),
         name: "Date With Jaden",
-        dishID: [recipesData[1].id],
+        dishID: [recipesData[1].id.uuidString].joined(separator: ","),
         date: Date()
         )
 ]

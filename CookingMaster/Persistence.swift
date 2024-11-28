@@ -128,6 +128,33 @@ struct PersistenceController {
         }
     }
     
+    //MARK: -Update Recipe
+    func updateRecipe(recipe: Recipe, updatedDetails: Recipe) {
+        let context = container.viewContext
+        let fetchRequest: NSFetchRequest<RecipeEntity> = RecipeEntity.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "id == %@", recipe.id as CVarArg)
+
+        do {
+            if let entity = try context.fetch(fetchRequest).first {
+                entity.title = updatedDetails.title
+                entity.headline = updatedDetails.headline
+                entity.chef = updatedDetails.chef
+                entity.rating = Int16(updatedDetails.rating)
+                entity.serves = Int16(updatedDetails.serves)
+                entity.preparation = Int16(updatedDetails.preparation)
+                entity.cooking = Int16(updatedDetails.cooking)
+                entity.instructions = updatedDetails.instructions.joined(separator: ",")
+                entity.ingredients = updatedDetails.ingredients.joined(separator: ",")
+                entity.category = updatedDetails.category
+                entity.tags = updatedDetails.tags.joined(separator: ",") // Fix: Ensure tags are saved
+
+                try context.save()
+                print("Recipe updated successfully!")
+            }
+        } catch {
+            print("Failed to update recipe: \(error.localizedDescription)")
+        }
+    }
     // MARK: - Delete Recipe
     func deleteRecipe(_ recipeEntity: RecipeEntity) {
         let context = container.viewContext
@@ -181,18 +208,27 @@ struct PersistenceController {
     func fetchMenus() -> [Menu] {
         let context = container.viewContext
         let fetchRequest: NSFetchRequest<MenuEntity> = MenuEntity.fetchRequest()
-        
+
         do {
             let menuEntities = try context.fetch(fetchRequest)
-            
+            let allRecipes = fetchRecipes() // Fetch all recipes (static and Core Data)
+
             return menuEntities.map { menuEntity in
                 Menu(
                     id: menuEntity.id ?? UUID(),
                     name: menuEntity.name ?? "",
-                    dishID: menuEntity.dishid?.components(separatedBy: ",").compactMap { UUID(uuidString: $0) } ?? [],
+                    dishID: menuEntity.dishid ?? "",
                     date: menuEntity.date ?? Date()
                 )
             }
+//            .map { menu in
+//                // Resolve recipes using `dishID`
+//                var resolvedMenu = menu
+//                resolvedMenu.dishID = (resolvedMenu.dishID.components(separatedBy: ",").compactMap { UUID(uuidString: \$0) } ?? [])  .filter { id in
+//                    allRecipes.contains { $0.id.uuidString == id.uuidString }
+//                }.map { (\$0).id }.joined(separator: ",")
+//                return resolvedMenu
+//            }
         } catch {
             print("Failed to fetch menus: \(error.localizedDescription)")
             return []
@@ -203,12 +239,12 @@ struct PersistenceController {
     func saveMenu(menu: Menu) {
         let context = container.viewContext
         let newMenu = MenuEntity(context: context)
-        
+
         newMenu.id = menu.id
         newMenu.name = menu.name
         newMenu.date = menu.date
-        newMenu.dishid = menu.dishID.map { $0.uuidString }.joined(separator: ",")
-        
+        newMenu.dishid = menu.dishID
+
         do {
             try context.save()
             print("Menu saved successfully!")
@@ -218,16 +254,15 @@ struct PersistenceController {
     }
     
     // MARK: - Delete Menu
-        func deleteMenu(_ menuEntity: MenuEntity) {
-            let context = container.viewContext
-            context.delete(menuEntity)
+    func deleteMenu(_ menuEntity: MenuEntity) {
+        let context = container.viewContext
+        context.delete(menuEntity)
 
-            do {
-                try context.save()
-                print("Menu deleted successfully!")
-            } catch {
-                print("Failed to delete menu: \(error.localizedDescription)")
-            }
+        do {
+            try context.save()
+            print("Menu deleted successfully!")
+        } catch {
+            print("Failed to delete menu: \(error.localizedDescription)")
         }
-}
+    }}
 

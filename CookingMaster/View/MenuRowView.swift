@@ -24,15 +24,25 @@ struct MenuRowView: View {
     var body: some View {
         
         HStack{
+            let uuidStrings = menu.dishID.split(separator: ",").map(String.init)
+            let uuidArray = uuidStrings.compactMap(UUID.init)
+            let recipeEntity = fetchedRecipes;
+            if (menu.name == "wyywyw") {
+                let v = "进入了"
+            }
+            
+            let straing = "====\(recipeEntity.first?.id?.uuidString)====\(recipeEntity.last?.id?.uuidString)"
+            let recipeEntity1 = fetchedRecipes.first(where: { $0.id?.uuidString == uuidArray.first?.uuidString })
             // Find the first recipe matching the first dishID in Core Data
-            if let firstDishID = menu.dishID.first {
-                if let recipe = recipes.first(where: { $0.id == firstDishID }) {
+            if let firstDishID = uuidArray.first {
+                if let recipe = recipes.first(where: { $0.id.uuidString == firstDishID.uuidString }) {
                     // Recipe is from recipesData
-                    if !recipe.image.isEmpty {
+                    if UIImage(named: recipe.image) != nil {
+                        // Image from Asset Catalog
                         Image(recipe.image)
                             .resizable()
                             .scaledToFill()
-                            .frame(width: 100, height: 100)
+                            .frame(width: 110, height: 110)
                             .cornerRadius(10)
                             .clipped()
                     } else {
@@ -46,14 +56,27 @@ struct MenuRowView: View {
                                     .foregroundColor(.white)
                             )
                     }
-                } else if let recipeEntity = fetchedRecipes.first(where: { $0.id == firstDishID }),
+                } else if let recipeEntity = fetchedRecipes.first(where: { $0.id?.uuidString == firstDishID.uuidString }),
                           let imageName = recipeEntity.image, !imageName.isEmpty {
-                    Image(imageName)
-                        .resizable()
-                        .scaledToFill()
-                        .frame(width: 100, height: 100)
-                        .cornerRadius(10)
-                        .clipped()
+                    if let loadedImage = PersistenceController.shared.loadImageFromDocuments(fileName: imageName) {
+                        // Dynamically loaded image from file
+                        Image(uiImage: loadedImage)
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: 110, height: 110)
+                            .cornerRadius(10)
+                            .clipped()
+                    } else {
+                        Rectangle()
+                            .fill(Color.gray.opacity(0.3))
+                            .frame(width: 100, height: 100)
+                            .cornerRadius(10)
+                            .overlay(
+                                Text("No Image")
+                                    .font(.caption)
+                                    .foregroundColor(.white)
+                            )
+                    }
                 } else {
                     Rectangle()
                         .fill(Color.gray.opacity(0.3))
@@ -76,7 +99,6 @@ struct MenuRowView: View {
                             .foregroundColor(.white)
                     )
             }
-                    
             
             VStack(alignment: .leading, spacing: 5){
                 Text(menu.name)

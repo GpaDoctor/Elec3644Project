@@ -27,7 +27,9 @@ struct MenuDetial: View {
                 
                 //recipe list
                 VStack(alignment:.center,spacing: 20){
-                    ForEach(menu.dishID, id: \.self) { dishID in
+                    let uuidStrings = menu.dishID.split(separator: ",").map(String.init)
+                    let uuidArray = uuidStrings.compactMap(UUID.init)
+                    ForEach(uuidArray, id: \.self) { dishID in
                         if let recipe = recipes.first(where: { $0.id == dishID }) {
                             // Recipe from recipesData
                             RecipeSmallCardView(recipe: recipe)
@@ -45,7 +47,9 @@ struct MenuDetial: View {
                     .font(.system(.title, design: .serif))
                 
                 VStack(alignment:.center,spacing: 20){
-                    ForEach(menu.dishID, id: \.self) { dishID in
+                    let uuidStrings = menu.dishID.split(separator: ",").map(String.init)
+                    let uuidArray = uuidStrings.compactMap(UUID.init)
+                    ForEach(uuidArray, id: \.self) { dishID in
                         if let recipe = recipes.first(where: { $0.id == dishID }) {
                             // Recipe from recipesData
                             ForEach(recipe.ingredients, id: \.self) { item in

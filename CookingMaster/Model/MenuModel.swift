@@ -11,7 +11,7 @@ import SwiftUI
 struct Menu: Identifiable, Hashable {
     var id = UUID()
     var name: String
-    var dishID: [UUID]
+    var dishID: String
     var date: Date
 }
 //    var dish: [Recipe]{

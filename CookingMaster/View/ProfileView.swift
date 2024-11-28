@@ -224,4 +224,3 @@ struct RecipeGridView: View {
         }
     }
 }
-
