@@ -132,17 +132,17 @@ struct LikedView: View {
     }
 }
 
-struct RecipeGridItem: View {
-    var recipe: Recipe
-
-    var body: some View {
-        VStack {
-            Image(recipe.image)
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-                .frame(width: (UIScreen.main.bounds.width / 2) - 25, height: 150)
-                .clipped()
-                .cornerRadius(10)
-        }
-    }
-}
+//struct RecipeGridItem: View {
+//    var recipe: Recipe
+//
+//    var body: some View {
+//        VStack {
+//            Image(recipe.image)
+//                .resizable()
+//                .aspectRatio(contentMode: .fill)
+//                .frame(width: (UIScreen.main.bounds.width / 2) - 25, height: 150)
+//                .clipped()
+//                .cornerRadius(10)
+//        }
+//    }
+//}
