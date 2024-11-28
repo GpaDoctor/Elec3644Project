@@ -67,7 +67,7 @@ struct SplashScreenContent: View {
                                 )
                                 .overlay(
                                     Color.black
-                                        .opacity(0.8)
+                                        .opacity(0.5)
                                         .blendMode(.multiply)
                                 )
                                 .brightness(-0.1)
