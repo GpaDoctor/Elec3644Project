@@ -400,7 +400,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"CookingMaster/Preview Content\"";
-				DEVELOPMENT_TEAM = Y2R44TWK86;
+				DEVELOPMENT_TEAM = 5BTZYGTRUP;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Grant Permission for User Location?";
@@ -431,7 +431,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"CookingMaster/Preview Content\"";
-				DEVELOPMENT_TEAM = Y2R44TWK86;
+				DEVELOPMENT_TEAM = 5BTZYGTRUP;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Grant Permission for User Location?";
