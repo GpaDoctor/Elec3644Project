@@ -1,5 +1,10 @@
-
-//Author Name: Cheung Ching Pan (3036101721)
+//
+//  ProfileView.swift
+//  CookingMaster
+//
+// Author Name: Cheung Ching Pan (3036101721)
+//              Cheung Man Hei Kay (3036106109)
+//
 
 import SwiftUI
 import CoreData

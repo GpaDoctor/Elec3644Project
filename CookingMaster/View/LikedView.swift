@@ -2,18 +2,13 @@
 //  LikedView.swift
 //  CookingMaster
 //
-//  Created by Lawrence on 26/11/2024.
+//  Author Name: Wong Lok Wang (3035947477)
 //
 
 import Foundation
 import SwiftUI
 import CoreData
 
-//struct LikedView: View {
-//    var body: some View {
-//        Text("LikedView")
-//    }
-//}
 struct LikedView: View {
     // Access the managed object context
     @Environment(\.managedObjectContext) private var viewContext
@@ -131,18 +126,3 @@ struct LikedView: View {
         }
     }
 }
-
-//struct RecipeGridItem: View {
-//    var recipe: Recipe
-//
-//    var body: some View {
-//        VStack {
-//            Image(recipe.image)
-//                .resizable()
-//                .aspectRatio(contentMode: .fill)
-//                .frame(width: (UIScreen.main.bounds.width / 2) - 25, height: 150)
-//                .clipped()
-//                .cornerRadius(10)
-//        }
-//    }
-//}

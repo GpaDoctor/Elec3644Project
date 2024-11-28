@@ -2,7 +2,8 @@
 //  MyRecipeDetailView.swift
 //  CookingMaster
 //
-//  Created by Ching Pan CHEUNG on 11/29/24.
+//  Author name: Cheung Ching Pan (3036101721)
+//               Cheung Man Hei Kay (3036106109)
 //
 
 import SwiftUI

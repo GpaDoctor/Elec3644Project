@@ -1,9 +1,8 @@
-////
-////  SettingsView.swift
-////  CookingMaster
-////
-////  Created by Lawrence on 28/11/2024.
-////
+//
+//  SettingsView.swift
+//  CookingMaster
+//
+//  Author Name: Wong Lok Wang (3035947477)
 //
 
 import SwiftUI

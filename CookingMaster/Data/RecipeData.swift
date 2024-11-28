@@ -2,8 +2,8 @@
 //  RecipeData.swift
 //  CookingMaster
 //
-//  Created by Ching Pan CHEUNG on 11/22/24.
-//Author Name: Cheung Ching Pan (3036101721)
+//  Author Name: Cheung Ching Pan (3036101721)
+//               Cheung Man Hei Kay (3036106109)
 //
 
 import Foundation

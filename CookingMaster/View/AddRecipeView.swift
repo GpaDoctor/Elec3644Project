@@ -2,9 +2,8 @@
 //  AddRecipeView.swift
 //  CookingMaster
 //
-//  Created by Ching Pan CHEUNG on 11/27/24.
-//Author Name: Cheung Ching Pan (3036101721)
-//
+//  Author Name: Cheung Ching Pan (3036101721)
+//               Cheung Man Hei Kay (303601609)
 
 import SwiftUI
 import CoreData
@@ -133,12 +132,6 @@ struct AddRecipeView: View {
                         Text("Cooking Time: \(cooking) mins")
                     }
                 }
-                
-//                Section(header: Text("Tags")){
-//                    
-//                }
-                
-                
             }
             .navigationTitle(recipeToEdit == nil ? "Add Recipe" : "Update Recipe")
             .toolbar {

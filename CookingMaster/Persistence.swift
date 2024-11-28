@@ -1,8 +1,9 @@
-
-
 //
-//created by Cheung, Ching Pan (3036101721)
-//Author Name: Cheung Ching Pan (3036101721)
+//  Persistence.swift
+//  CookingMaster
+//
+//  Author Name: Cheung Ching Pan (3036101721)
+//               Cheung Man Hei Kay (3036106109)
 //
 
 
@@ -226,14 +227,6 @@ struct PersistenceController {
                     date: menuEntity.date ?? Date()
                 )
             }
-            //            .map { menu in
-            //                // Resolve recipes using `dishID`
-            //                var resolvedMenu = menu
-            //                resolvedMenu.dishID = (resolvedMenu.dishID.components(separatedBy: ",").compactMap { UUID(uuidString: \$0) } ?? [])  .filter { id in
-            //                    allRecipes.contains { $0.id.uuidString == id.uuidString }
-            //                }.map { (\$0).id }.joined(separator: ",")
-            //                return resolvedMenu
-            //            }
         } catch {
             print("Failed to fetch menus: \(error.localizedDescription)")
             return []

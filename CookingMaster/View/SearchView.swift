@@ -1,3 +1,10 @@
+//
+//  SearchView.swift
+//  CookingMaster
+//
+//  Author Name: Wong Lok Wang (3035947477)
+//
+
 import SwiftUI
 
 struct SearchView: View {

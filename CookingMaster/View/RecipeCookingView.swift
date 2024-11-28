@@ -2,8 +2,7 @@
 //  RecipeCookingView.swift
 //  CookingMaster
 //
-//  Created by Ching Pan CHEUNG on 11/22/24.
-//Author Name: Cheung Ching Pan (3036101721)
+//  Author Name: Cheung Ching Pan (3036101721)
 //
 //
 
@@ -91,13 +90,4 @@ struct RecipeCookingView_Previews: PreviewProvider {
     }
 }
 
-// Preview
-//struct RecipeCookingView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        // Provide a sample recipe
-//        let sampleRecipe = Recipe(id: UUID(), chef: "Sample Chef", preparation: "30 mins")
-//        return RecipeCookingView(recipe: sampleRecipe)
-//            .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
-//            .previewLayout(.fixed(width: 320, height: 60))
-//    }
-//}
+

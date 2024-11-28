@@ -1,10 +1,10 @@
 //
-//  CookingHistory.swift
+//  CookingHistoryView.swift
 //  CookingMaster
 //
-//  Created by Lawrence on 26/11/2024.
+//  Author Name: Wong Lok Wang (3035947477)
 //
-//
+
 
 
 import SwiftUI
@@ -92,10 +92,3 @@ struct CookingHistoryView: View {
     }
 }
 
-
-//struct CookingHistoryView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        CookingHistoryView()
-//            .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
-//    }
-//}

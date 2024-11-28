@@ -2,7 +2,7 @@
 //  SplashScreenView.swift
 //  CookingMaster
 //
-//  Created by Kay Cheung on 26/11/2024.
+//  Author Name: Cheung Man Hei Kay (3036106109)
 //
 
 import SwiftUI

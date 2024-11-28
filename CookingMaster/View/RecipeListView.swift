@@ -2,8 +2,7 @@
 //  RecipeListView.swift
 //  CookingMaster
 //
-//  Created by Ching Pan CHEUNG on 11/27/24.
-//Author Name: Cheung Ching Pan (3036101721)
+//  Author Name: Cheung Ching Pan (3036101721)
 //
 
 import Foundation
