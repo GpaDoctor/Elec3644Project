@@ -12,7 +12,7 @@ let recipesData: [Recipe] = [
     Recipe(
         id:UUID(),
       title: "Sweet And Sour Pork",
-      headline: "Experience a flavor explosion with this Sweet and Sour Pork recipe that'll transport your taste buds straight to a bustling Asian street market. This dish combines tender pork with a tangy, vibrant sauce for a meal that's sure to impress your friends and family.",
+      headline: "Try this delicious Sweet and Sour Pork recipe that blends tender pork with a tangy sauce, reminiscent of Asian street market flavors. It's a surefire way to delight your loved ones!",
       image: "SweetAndSourPork-cover",
         chef: "Jaden C",
       rating: 5,
@@ -20,17 +20,17 @@ let recipesData: [Recipe] = [
       preparation: 10,
       cooking: 25,
       instructions: [
-        "01 In a bowl, combine all marinade ingredients with the pork. Cover and leave to marinade in the fridge 20 minutes.",
-        "02 Place the corn flour in a large bowl and toss the marinated pork chunks until liberally coated.",
-        "03 In a medium-sized saucepan, heat the oil to 350˚F (180°C).",
-        "04 Deep fry the pork pieces for about 3-4 minutes until the coating is golden brown and the pork is cooked throughout. Set aside.",
-        "05 For the sauce, place a frying pan over a medium heat and add the oil.",
-        "06 Sauté the garlic until fragrant, then fry the peppers until soften.",
-        "07 Add in the pineapple and warm thorough.",
-        "08 Add the sugar, vinegar, and ketchup, stir. Bring the mixture to a boil.",
-        "09 Add the pork to the frying pan and coat everything evenly with the sauce.",
-        "10 Serve top with sesame seeds.",
-        "11 Enjoy!"
+        "In a bowl, combine all marinade ingredients with the pork. Cover and leave to marinade in the fridge 20 minutes.",
+        "Place the corn flour in a large bowl and toss the marinated pork chunks until liberally coated.",
+        "In a medium-sized saucepan, heat the oil to 350˚F (180°C).",
+        "Deep fry the pork pieces for about 3-4 minutes until the coating is golden brown and the pork is cooked throughout. Set aside.",
+        "For the sauce, place a frying pan over a medium heat and add the oil.",
+        "Sauté the garlic until fragrant, then fry the peppers until soften.",
+        "Add in the pineapple and warm thorough.",
+        "Add the sugar, vinegar, and ketchup, stir. Bring the mixture to a boil.",
+        "Add the pork to the frying pan and coat everything evenly with the sauce.",
+        "Serve top with sesame seeds.",
+        "Enjoy!"
       ],
       ingredients: [
         "½ lb pork(200 g), chopped into bite size pieces",
@@ -49,17 +49,17 @@ let recipesData: [Recipe] = [
         "2 tablespoons ketchup"
       ],
         category: "Asian",
-        tags: ["Asian Cuisine", "Sweet and Sour", "Pork Recipe", "Quick and Easy", "Dinner", "Homemade", "Comfort Food", "Tangy Sauce", "Family Meal", "Street Food"]
+        tags: ["Asian Cuisine", "Sweet and Sour", "Pork Recipe", "Quick and Easy", "Dinner", "Homemade", "Comfort Food", "Tangy Sauce", "Family Meal", "Street Food","Pork"]
     ),
     
     
     Recipe(
         id: UUID(),
       title: "Brownie Tiramisu",
-      headline: "Close your eyes and take a bite of this dreamy dessert. The fudgy, chocolatey brownies mingle with the creamy, airy layers of tiramisu, creating a flavor explosion that'll transport you to an Italian cafe.",
+      headline: "Indulge in a heavenly dessert where fudgy brownies meet creamy tiramisu layers, whisking you away to an Italian cafe with every bite.",
       image: "BrownieTiramisu-cover",
-      chef: "Gordon",
-      rating: 3,
+      chef: "K Cheung",
+      rating: 5,
       serves: 4,
       preparation: 30,
       cooking: 70,
@@ -104,13 +104,13 @@ let recipesData: [Recipe] = [
         preparation: 15, //prepatation time
         cooking: 16, //cooking time
         instructions: [
-            "01 In a large bowl, combine green cabbage, red onion, sour cream, lime juice, and salt. Chill until ready to serve.",
-            "02 In a bowl, mix cayenne, garlic powder, cumin, salt, and pepper. Season each tilapia fillet on both sides with the seasoning mix.",
-            "03 Over medium-high heat, cook 2 fillets at a time for 8 minutes, flipping halfway. Repeat for the remaining fillets.",
-            "04 Using a fork, break apart the fillets into bite-size pieces.",
-            "05 Right before serving, heat the corn tortillas in the pan over high heat. Remove from the pan and assemble the tacos with the cabbage slaw and tilapia.",
-            "06 Garnish with cilantro and lime juice.",
-            "07 Enjoy!"
+            "In a large bowl, combine green cabbage, red onion, sour cream, lime juice, and salt. Chill until ready to serve.",
+            "In a bowl, mix cayenne, garlic powder, cumin, salt, and pepper. Season each tilapia fillet on both sides with the seasoning mix.",
+            "Over medium-high heat, cook 2 fillets at a time for 8 minutes, flipping halfway. Repeat for the remaining fillets.",
+            "Using a fork, break apart the fillets into bite-size pieces.",
+            "Right before serving, heat the corn tortillas in the pan over high heat. Remove from the pan and assemble the tacos with the cabbage slaw and tilapia.",
+            "Garnish with cilantro and lime juice.",
+            "Enjoy!"
         ],
         ingredients: [
             "3 cups green cabbage(300 g), shredded",

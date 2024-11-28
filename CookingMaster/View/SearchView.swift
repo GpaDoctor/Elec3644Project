@@ -19,7 +19,8 @@ struct SearchView: View {
         FilterGroup(category: "Dietary Preferences", filters: ["Vegetarian", "Vegan", "Gluten-Free", "Keto"]),
         FilterGroup(category: "Cuisine", filters: ["Italian", "Mexican", "Chinese", "Indian"]),
         FilterGroup(category: "Difficulty", filters: ["Easy", "Medium", "Hard"]),
-        FilterGroup(category: "Cooking Time", filters: ["< 30 mins", "30-60 mins", "> 60 mins"])
+        FilterGroup(category: "Cooking Time", filters: ["< 30 mins", "30-60 mins", "> 60 mins"]),
+        FilterGroup(category: "Food", filters:["Pork", "Beef", "Fish", "Chicken"])
     ]
 
     var suggestions: [String] {

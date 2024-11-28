@@ -117,10 +117,7 @@ struct SplashScreenContent: View {
                     .font(.custom("AladdinRegular", size: 25)) // 增大字體
                     .foregroundColor(.white)
                     .opacity(opacity)
-                Text("Jaden is a F**king Genius")
-                    .font(.system(.title2, design: .serif))
-                    .foregroundColor(.white)
-                    .padding(.top,20)
+
                 Spacer()
             }
             .scaleEffect(finalScale)
