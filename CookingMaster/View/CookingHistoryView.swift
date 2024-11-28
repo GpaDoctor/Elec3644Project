@@ -4,6 +4,8 @@
 //
 //  Created by Lawrence on 26/11/2024.
 //
+//
+
 
 import SwiftUI
 import CoreData
@@ -62,17 +64,38 @@ struct CookingHistoryView: View {
                                 }
                             }
                         }
+                        .onDelete { indexSet in
+                            deleteRecipe(at: indexSet, in: dateKey)
+                        }
                     }
                 }
             }
             .navigationTitle("Cooking History")
+            .toolbar {
+                EditButton()
+            }
+        }
+    }
+
+    private func deleteRecipe(at offsets: IndexSet, in dateKey: String) {
+        for index in offsets {
+            if let recipe = groupedRecipes[dateKey]?[index],
+               let cookedRecipe = cookedRecipes.first(where: { $0.id == recipe.id }) {
+                viewContext.delete(cookedRecipe)
+            }
+        }
+        do {
+            try viewContext.save()
+        } catch {
+            print("Error deleting recipe: \(error)")
         }
     }
 }
 
-struct CookingHistoryView_Previews: PreviewProvider {
-    static var previews: some View {
-        CookingHistoryView()
-            .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
-    }
-}
+
+//struct CookingHistoryView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        CookingHistoryView()
+//            .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+//    }
+//}
