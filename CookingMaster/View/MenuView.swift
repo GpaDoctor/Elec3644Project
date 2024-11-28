@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+import CoreData
 
 
 struct MenuView: View {
@@ -24,6 +25,7 @@ struct MenuView: View {
                     }
                     .listRowBackground(Color.clear)
                 }
+                .onDelete(perform: deleteMenu) // Add swipe-to-delete functionality
             }
             .navigationTitle("Menus")
             .toolbar {
@@ -55,6 +57,36 @@ struct MenuView: View {
     private func fetchMenus() {
         staticMenus = menuData // Replace `menuData` with your static data source
         userMenus = PersistenceController.shared.fetchMenus()
+    }
+    // MARK: - Delete Menu
+        private func deleteMenu(at offsets: IndexSet) {
+            offsets.forEach { index in
+                let menuToDelete = combinedMenus[index]
+
+                // Remove from staticMenus or userMenus
+                if let staticIndex = staticMenus.firstIndex(where: { $0.id == menuToDelete.id }) {
+                    staticMenus.remove(at: staticIndex)
+                } else if let userIndex = userMenus.firstIndex(where: { $0.id == menuToDelete.id }) {
+                    userMenus.remove(at: userIndex)
+
+                    // Delete from Core Data
+                    if let menuEntity = fetchMenuEntity(by: menuToDelete.id) {
+                        PersistenceController.shared.deleteMenu(menuEntity)
+                    }
+                }
+            }
+        }
+    private func fetchMenuEntity(by id: UUID) -> MenuEntity? {
+        let context = PersistenceController.shared.container.viewContext
+        let fetchRequest: NSFetchRequest<MenuEntity> = MenuEntity.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "id == %@", id as CVarArg)
+
+        do {
+            return try context.fetch(fetchRequest).first
+        } catch {
+            print("Failed to fetch MenuEntity: \(error.localizedDescription)")
+            return nil
+        }
     }
 }
 
