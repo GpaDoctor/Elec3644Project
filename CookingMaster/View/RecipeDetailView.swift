@@ -103,7 +103,7 @@ struct RecipeDetailView: View {
                             .animation(
                                 Animation.easeInOut(duration: 1.5)
                                     .repeatForever(autoreverses: true),
-                                value: pulsate
+        /*            */            value: pulsate
                             )
                     }
                     .padding(.trailing,20)
