@@ -168,7 +168,7 @@ struct RecipeCardView: View {
 struct TitleModifier1: ViewModifier {
     func body(content: Content) -> some View {
         content
-            .font(.system(.title2, design: .serif))
+            .font(.system(.title, design: .serif))
             .fontWeight(.bold)
             .foregroundColor(.black)
                 .padding(8)

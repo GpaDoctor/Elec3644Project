@@ -10,11 +10,13 @@ import SwiftUI
 
 let menuData: [Menu] = [
     Menu(
+        id: UUID(),
         name: "Breakfast",
         dishID: [recipesData[0].id, recipesData[1].id],
         date: Date()
         ),
     Menu(
+        id:UUID(),
         name: "Date With Jaden",
         dishID: [recipesData[1].id],
         date: Date()

@@ -175,4 +175,58 @@ struct PersistenceController {
             return nil
         }
     }
+    
+    // MARK: - Fetch Menus
+    func fetchMenus() -> [Menu] {
+        let context = container.viewContext
+        let fetchRequest: NSFetchRequest<MenuEntity> = MenuEntity.fetchRequest()
+        
+        do {
+            let menuEntities = try context.fetch(fetchRequest)
+            
+            return menuEntities.map { menuEntity in
+                Menu(
+                    id: menuEntity.id ?? UUID(),
+                    name: menuEntity.name ?? "",
+                    dishID: menuEntity.dishid?.components(separatedBy: ",").compactMap { UUID(uuidString: $0) } ?? [],
+                    date: menuEntity.date ?? Date()
+                )
+            }
+        } catch {
+            print("Failed to fetch menus: \(error.localizedDescription)")
+            return []
+        }
+    }
+    
+    // MARK: - Save Menu
+    func saveMenu(menu: Menu) {
+        let context = container.viewContext
+        let newMenu = MenuEntity(context: context)
+        
+        newMenu.id = menu.id
+        newMenu.name = menu.name
+        newMenu.date = menu.date
+        newMenu.dishid = menu.dishID.map { $0.uuidString }.joined(separator: ",")
+        
+        do {
+            try context.save()
+            print("Menu saved successfully!")
+        } catch {
+            print("Failed to save menu: \(error.localizedDescription)")
+        }
+    }
+    
+    // MARK: - Delete Menu
+        func deleteMenu(_ menuEntity: MenuEntity) {
+            let context = container.viewContext
+            context.delete(menuEntity)
+
+            do {
+                try context.save()
+                print("Menu deleted successfully!")
+            } catch {
+                print("Failed to delete menu: \(error.localizedDescription)")
+            }
+        }
 }
+

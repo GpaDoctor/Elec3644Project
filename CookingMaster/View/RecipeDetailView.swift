@@ -15,11 +15,28 @@ struct RecipeDetailView: View {
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
             VStack(alignment: .center, spacing: 0) {
-                Image(recipe.image)
-                    .resizable()
-                    .scaledToFit()
-                    .frame(height: 500)
-                    .frame(width: 410)
+                if let loadedImage = PersistenceController.shared.loadImageFromDocuments(fileName: recipe.image) {
+                    // Dynamically loaded image from file
+                    Image(uiImage: loadedImage)
+                        .resizable()
+                        .scaledToFit()
+                } else if UIImage(named: recipe.image) != nil {
+                    // Image from Asset Catalog
+                    Image(recipe.image)
+                        .resizable()
+                        .scaledToFit()
+                } else {
+                    // Fallback if no image is found
+                    Rectangle()
+                        .fill(Color.gray.opacity(0.3))
+                        .frame(width: 200, height: 200)
+                        .cornerRadius(10)
+                        .overlay(
+                            Text("No Image")
+                                .font(.caption)
+                                .foregroundColor(.white)
+                        )
+                }
 
                 Group {
                     // Title

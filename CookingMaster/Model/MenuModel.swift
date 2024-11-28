@@ -13,17 +13,18 @@ struct Menu: Identifiable, Hashable {
     var name: String
     var dishID: [UUID]
     var date: Date
-    var dish: [Recipe]{
-        dishID.compactMap{dishIDs in
-            recipesData.first{$0.id == dishIDs}
-        }
-    }
-    // Conformance to `Hashable`
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(id)
-    }
-    
-    static func == (lhs: Menu, rhs: Menu) -> Bool {
-        lhs.id == rhs.id
-    }
 }
+//    var dish: [Recipe]{
+//        dishID.compactMap{dishIDs in
+//            recipesData.first{$0.id == dishIDs}
+//        }
+//    }
+//    // Conformance to `Hashable`
+//    func hash(into hasher: inout Hasher) {
+//        hasher.combine(id)
+//    }
+//    
+//    static func == (lhs: Menu, rhs: Menu) -> Bool {
+//        lhs.id == rhs.id
+//    }
+//}
