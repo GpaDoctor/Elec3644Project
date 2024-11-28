@@ -12,7 +12,7 @@ let recipesData: [Recipe] = [
     Recipe(
         id:UUID(),
       title: "Sweet And Sour Pork",
-      headline: "Try this delicious Sweet and Sour Pork recipe that blends tender pork with a tangy sauce, reminiscent of Asian street market flavors. It's a surefire way to delight your loved ones!",
+      headline: "Enjoy this tasty Sweet and Sour Pork recipe - a flavorful blend of tender pork and tangy Asian-inspired sauce. Perfect for pleasing your loved ones!",
       image: "SweetAndSourPork-cover",
         chef: "Jaden C",
       rating: 5,
@@ -49,7 +49,7 @@ let recipesData: [Recipe] = [
         "2 tablespoons ketchup"
       ],
         category: "Asian",
-        tags: ["Asian Cuisine", "Sweet and Sour", "Pork Recipe", "Quick and Easy", "Dinner", "Homemade", "Comfort Food", "Tangy Sauce", "Family Meal", "Street Food","Pork","Cuisine", "Asian", "Chinese", "Pork", "Eggs", "Meal", "Hig-Protein", "Under 1 Hour", "Pan Fry", "Stove Top", "Weeknight", "Date Night"]
+        tags: ["Asian Cuisine", "Sweet and Sour", "Pork Recipe", "Quick and Easy", "Dinner", "Homemade", "Comfort Food", "Tangy Sauce", "Family Meal", "Street Food","Pork","Cuisine", "Asian", "Chinese", "Pork", "Eggs", "Meal", "Hig-Protein", "Under 1 Hour", "Pan Fry", "Stove Top", "Weeknight", "Date Night","Medium","Lunch"]
     ),
     
     
@@ -89,14 +89,14 @@ let recipesData: [Recipe] = [
         "1 teaspoon vanilla extract"
       ],
         category: "Italian",
-        tags: ["Italian", "Dessert", "Brownie", "Tiramisu", "Chocolate", "Coffee", "Creamy", "Sweet Treat", "Baking", "Homemade","Cuisine", "European", "Italian", "Dairy", "Gluten", "Brownies", "Cakes", "Coffee", "Under 1 Hour", "Special Occasion", "No Bake Desserts", "Mashup"]
+        tags: ["Italian", "Dessert", "Brownie", "Tiramisu", "Chocolate", "Coffee", "Creamy", "Sweet Treat", "Baking", "Homemade","Cuisine", "European", "Italian", "Dairy", "Gluten", "Brownies", "Cakes", "Coffee", "> 60 mins", "Special Occasion", "No Bake Desserts", "Mashup","Medium"]
     ),
     
     
     Recipe(
         id: UUID(),
         title: "Easy Fish Tacos",
-        headline: "Crispy, golden-brown fish fillets, wrapped in warm corn tortillas and topped with a delicious slaw made with shredded cabbage, red onion, and sour cream. Serve a sprinkle of fresh cilantro and lime juice!",
+        headline: "Golden-brown fish fillets in corn tortillas with cabbage slaw, onion, sour cream, cilantro, and lime.",
         image: "EasyFishTacos-cover",
         chef: "Gordon",
         rating: 4,
@@ -129,7 +129,7 @@ let recipesData: [Recipe] = [
             "lime, to taste"
         ],
         category: "Mexican",
-        tags: ["Mexican", "Dinner", "Fish Tacos", "Quick and Easy", "Seafood", "Healthy", "Crispy", "Homemade", "Family Meal", "Street Food","Meal", "Dinner", "Tacos & Burritos", "Seafood", "Dairy", "Fish", "High-Fiber", "Low-Sugar", "High Protein", "Under 1 Hour", "Under 45 Minutes", "Pescatarian"]
+        tags: ["Mexican", "Dinner", "Fish Tacos", "Quick and Easy", "Seafood", "Healthy", "Crispy", "Homemade", "Family Meal", "Street Food","Meal", "Dinner", "Tacos & Burritos", "Seafood", "Dairy", "Fish", "High-Fiber", "Low-Sugar", "High Protein", "< 60 mins", "30-60 mins", "Pescatarian","Easy", "Breakfast", "Lunch"]
     ),
     
     Recipe(
@@ -161,7 +161,7 @@ let recipesData: [Recipe] = [
             "Salt and pepper to taste"
         ],
         category: "Italian",
-        tags: ["Italian", "Pizza", "Vegetarian", "Homemade", "Classic", "Quick and Easy", "Comfort Food", "Family Meal", "Baking", "Fresh Ingredients"]
+        tags: ["Italian", "Pizza", "Vegetarian", "Homemade", "Classic", "Quick and Easy", "Comfort Food", "Family Meal", "Baking", "Fresh Ingredients","Medium","Lunch"]
     ),
     
     Recipe(
@@ -169,7 +169,7 @@ let recipesData: [Recipe] = [
      title: "Spaghetti Carbonara",
      headline: "A classic Italian pasta dish made with eggs, cheese, pancetta, and pepper.",
      image: "SpaghettiCarbonara",
-    chef: "GpaDoctor",
+    chef: "L Law",
      rating: 5,
      serves: 4,
      preparation: 15,
@@ -191,7 +191,7 @@ let recipesData: [Recipe] = [
          "Black pepper to taste"
      ],
      category: "Italian",
-    tags: ["Italian", "Pasta", "Classic", "Quick and Easy", "Comfort Food", "Dinner", "Homemade", "Cheesy", "Family Meal", "Traditional"]
+    tags: ["Italian", "Pasta", "Classic", "Quick and Easy", "Comfort Food", "Dinner", "Homemade", "Cheesy", "Family Meal", "Traditional","Easy","Lunch"]
      ),
     
         Recipe(
@@ -199,7 +199,7 @@ let recipesData: [Recipe] = [
         title: "Chicken Tikka Masala",
         headline: "A popular Indian dish with marinated chicken cooked in a creamy tomato sauce.",
         image: "ChickenTikkaMasala",
-        chef: "GpaDoctor",
+        chef: "VLEE",
         rating: 5,
         serves: 4,
         preparation: 30,
@@ -229,7 +229,7 @@ let recipesData: [Recipe] = [
             "Salt and pepper to taste"
         ],
         category: "Indian",
-        tags: ["Indian", "Chicken", "Spicy", "Creamy", "Dinner", "Comfort Food", "Homemade", "Traditional", "Marinated", "Family Meal"]
+        tags: ["Indian", "Chicken", "Spicy", "Creamy", "Dinner", "Comfort Food", "Homemade", "Traditional", "Marinated", "Family Meal","Medium","Lunch", "Dinner"]
     ),
         
         Recipe(
@@ -237,7 +237,7 @@ let recipesData: [Recipe] = [
         title: "Beef Tacos",
         headline: "Delicious and easy beef tacos with a variety of toppings.",
         image: "BeefTacos",
-        chef: "GpaDoctor",
+        chef: "Rae Law",
         rating: 2,
         serves: 4,
         preparation: 15,
@@ -257,14 +257,14 @@ let recipesData: [Recipe] = [
             "Toppings: shredded lettuce, diced tomatoes, shredded cheese, sour cream, salsa"
         ],
         category: "Mexican",
-        tags: ["Mexican", "Tacos", "Beef", "Quick and Easy", "Dinner", "Comfort Food", "Homemade", "Family Meal", "Street Food", "Toppings"]
+        tags: ["Mexican", "Tacos", "Beef", "Quick and Easy", "Dinner", "Comfort Food", "Homemade", "Family Meal", "Street Food", "Toppings","Esay","Breakfast", "Lunch"]
     ),
     Recipe(
         id: UUID(),
         title: "Teriyaki Salmon",
         headline: "A flavorful and healthy salmon dish with a sweet and savory teriyaki glaze.",
         image: "TeriyakiSalmon",
-        chef: "GpaDoctor",
+        chef: "Hell Chef",
         rating: 3,
         serves: 4,
         preparation: 10,
@@ -285,15 +285,15 @@ let recipesData: [Recipe] = [
             "Steamed rice and vegetables for serving"
         ],
         category: "Japanese",
-        tags: ["Japanese", "Salmon", "Teriyaki", "Healthy", "Dinner", "Quick and Easy", "Seafood", "Homemade", "Family Meal", "Glazed"]
+        tags: ["Japanese", "Salmon", "Teriyaki", "Healthy", "Dinner", "Quick and Easy", "Seafood", "Homemade", "Family Meal", "Glazed", "Medium","Lunch", "Dinner"]
     ),
     
     
     Recipe(
         id: UUID(),
         title: "Ginger Tofu Dessert",
-        headline: "Experience a tasty Ginger Tofu Dessert with silky tofu and homemade ginger syrup. This treat combines creamy, spicy, and sweet flavors for a delightful and wholesome dessert option.",
-        image: "GinerTofuDessert-cover",
+        headline: "Delight in Ginger Tofu Dessert with silky tofu and homemade ginger syrup, blending creamy, spicy, and sweet flavors.",
+        image: "GingerTofuDessert-cover",
         chef: "Sarah Banh",
         rating: 5,
         serves: 4,
@@ -314,13 +314,13 @@ let recipesData: [Recipe] = [
           "1 16-ounce pack silken tofu"
         ],
         category:"Asian",
-            tags:["Asian","Meal", "Desserts", "Soy","Cooking Style", "Under 15 Minutes", "Healthy", "Comfort Food"]
+            tags:["Asian","Meal", "Desserts", "Soy","Cooking Style", "Under 15 Minutes", "Healthy", "Comfort Food","Easy"]
     ),
     
     Recipe(
         id: UUID(),
         title: "Chinese Chicken Fried Rice",
-        headline: "Make this take-out favorite at home effortlessly with just seven ingredients in one pan. It's quick, versatile, and budget-friendly. Swap the chicken for your preferred protein to customize your perfect fried rice. Who needs take-out when it's this simple?",
+        headline: "DIY take-out: seven ingredients, one pan. Quick, versatile, budget-friendly. Customize with protein. Skip take-out; it's simple!",
         image: "ChineseChickenFriedRice-cover",
         chef: "Evelyn Liu",
         rating: 4,
@@ -349,13 +349,13 @@ let recipesData: [Recipe] = [
           "1 oz spring onion(30 g)"
         ],
         category:"Asian",
-        tags:["Asian","Cuisine", "Chinese", "Halal", "Chicken", "Soy", "Gluten", "Eggs", "Stir Fly", "Egg Breakfasts", "Meal", "Low-Sugar", "High-Protein"]
+        tags:["Asian","Cuisine", "Chinese", "Halal", "Chicken", "Soy", "Gluten", "Eggs", "Stir Fly", "Egg Breakfasts", "Meal", "Low-Sugar", "High-Protein","Medium"]
     ),
     
     Recipe(
         id: UUID(),
         title: "Garlic Butter Steak",
-        headline: "Treat yourself to the ultimate steak delight! This juicy, tender steak is seared to perfection and topped with a rich garlic butter sauce. Enjoy it with roasted veggies or creamy mashed potatoes for a truly royal meal!",
+        headline: "Indulge in a perfectly seared steak topped with garlic butter. Pair with veggies or mashed potatoes for a royal feast!",
         image: "GarlicButterSteak-cover",
         chef: "Alvin Zhou",
         rating: 5,
@@ -383,13 +383,13 @@ let recipesData: [Recipe] = [
           "3 sprigs fresh thyme"
         ],
         category:"West",
-        tags: ["Meal","West", "Dinner", "Beef", "Dairy", "Difficulty", "Cooking Style", "Low-Sugar", "High-Protein", "Keto", "Special Occasion", "One-Pot Or Pan", "Meal Prep"]
+        tags: ["Meal","West", "Dinner", "Beef", "Dairy", "Difficulty", "Cooking Style", "Low-Sugar", "High-Protein", "Keto", "Special Occasion", "One-Pot Or Pan", "Meal Prep","Esay"]
     ),
     
     Recipe(
         id: UUID(),
         title: "Ratatouille",
-        headline: "Savor the flavors of summer with this easy ratatouille recipe. A tasty mix of fresh vegetables and herbs, it's a delicious French-inspired dish perfect as a side or main course.",
+        headline: "Enjoy summer flavors with this easy ratatouille. Fresh veggies and herbs make a delicious French-inspired dish, ideal as a side or main course.",
         image: "Ratatouille-cover",
         chef: "Robin Broadfoot",
         rating: 4,
@@ -429,13 +429,13 @@ let recipesData: [Recipe] = [
           "4 tablespoons olive oil"
         ],
         category:"French",
-        tags:["Cuisine", "European", "French", "Kosher", "Halal", "Dietary", "Meal", "Seasonal", "Appliance", "Cooking Style", "High-Fiber", "Low-Fat", "Low-Sugar"]
+        tags:["Cuisine", "European", "French", "Kosher", "Halal", "Dietary", "Meal", "Seasonal", "Appliance", "Cooking Style", "High-Fiber", "Low-Fat", "Low-Sugar", "Hard","Vegetarian", "Vegan"]
     ),
     
     Recipe(
         id: UUID(),
         title: "Broccoli Chicken Alfredo Lasagna",
-        headline: "Try this cheesy chicken and broccoli lasagna twist! Layers of chicken, broccoli, lasagna noodles, alfredo sauce, and mozzarella make it a perfect comfort dish for a cozy night.",
+        headline: "Savor cheesy chicken-broccoli lasagna twist with layers of comfort.",
         image: "BroccoliChickenAlfredoLasagna-cover",
         chef: "Claire Nolan",
         rating: 3,
@@ -463,13 +463,13 @@ let recipesData: [Recipe] = [
           "2 cups mozzarella cheese(230 g)"
         ],
         category:"Italian",
-            tags:["Cuisine", "European", "Italian", "Chicken", "Dairy", "Gluten", "Lasagna", "Chicken", "Meal","High-Protein", "Stove Top", "Weeknight", "Baking"]
+            tags:["Cuisine", "European", "Italian", "Chicken", "Dairy", "Gluten", "Lasagna", "Chicken", "Meal","High-Protein", "Stove Top", "Weeknight", "Baking","Medium"]
     ),
     
     Recipe(
         id: UUID(),
         title: "Show-Stopping Beef Wellington",
-        headline: "Make a stunning beef Wellington by seasoning and searing beef, adding mustard, mushrooms, and prosciutto, then wrapping in puff pastry. Bake to perfection for a flavorful masterpiece.",
+        headline: "Create a stunning beef Wellington: season beef, add mustard, mushrooms, prosciutto, wrap in puff pastry, bake for perfection.",
         image: "Show-StoppingBeefWellington-cover",
         chef: "Matthew Johnson",
         rating: 5,
@@ -510,13 +510,13 @@ let recipesData: [Recipe] = [
           "2 eggs, beaten"
         ],
         category:"West",
-        tags:["Cuisine", "European", "British", "Dairy", "Gluten", "Eggs", "Beef", "Occasion", "Holidays", "Difficulty", "Meal", "Low-Sugar", "High-Protein", "Under 1 Hour"]
+        tags:["Cuisine", "European", "British", "Dairy", "Gluten", "Eggs", "Beef", "Occasion", "Holidays", "Difficulty", "Meal", "Low-Sugar", "High-Protein", "Under 1 Hour","Hard"]
     ),
     
     Recipe(
         id: UUID(),
         title: "50-Clove Garlic Crab-Stuffed Salmon",
-        headline: "Indulge in Garlic Crab-Stuffed Salmon: succulent salmon with savory crab stuffing, garlic butter, herbs, and Old Bay seasoning. Brushed with garlic butter and baked to golden perfection. Perfect for special occasions.",
+        headline: "Enjoy Garlic Crab-Stuffed Salmon: succulent salmon with crab, garlic butter, herbs, Old Bay. Baked to perfection for special occasions.",
         image: "50-CloveGarlicCrab-StuffedSalmon-cover",
         chef: "Joelle Park",
         rating: 3,
@@ -551,7 +551,7 @@ let recipesData: [Recipe] = [
           "2 tablespoons minced fresh chives, for garnish"
         ],
         category:"West",
-            tags:["Meal","Dinner","Seafood", "Fish", "Seafood", "Dairy", "Shellfish", "Under 1 Hour", "Under 45 Minutes", "Under 15 Minutes", "Meal Prep", "Big Batch"]
+            tags:["Meal","Dinner","Seafood", "Fish", "Seafood", "Dairy", "Shellfish", "Under 1 Hour", "30-60 mins", "Under 15 Minutes", "Meal Prep", "Big Batch","Hard"]
     )
 
     

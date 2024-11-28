@@ -15,12 +15,13 @@ struct SearchView: View {
     }
 
     let groupedFilters: [FilterGroup] = [
-        FilterGroup(category: "Meal Type", filters: ["Breakfast", "Lunch", "Dinner", "Snacks"]),
-        FilterGroup(category: "Dietary Preferences", filters: ["Vegetarian", "Vegan", "Gluten-Free", "Keto"]),
-        FilterGroup(category: "Cuisine", filters: ["Italian", "Mexican", "Chinese", "Indian"]),
+        FilterGroup(category: "Meal Type", filters: ["Breakfast", "Lunch", "Dinner", "Snacks", "Dessert", "Meal"]),
+        FilterGroup(category: "Dietary Preferences", filters: ["Vegetarian", "Vegan", "Keto"]),
+        FilterGroup(category: "Cuisine", filters: ["Italian", "Mexican", "Chinese", "Indian","West"]),
         FilterGroup(category: "Difficulty", filters: ["Easy", "Medium", "Hard"]),
-        FilterGroup(category: "Cooking Time", filters: ["< 30 mins", "30-60 mins", "> 60 mins"]),
-        FilterGroup(category: "Food", filters:["Pork", "Beef", "Fish", "Chicken"])
+        FilterGroup(category: "Cooking Time", filters: ["< 30 mins", "30-60 mins", "> 60 mins","Under 15 Minutes","Under 1 Hour"]),
+        FilterGroup(category: "Food", filters:["Pork", "Beef", "Fish", "Chicken","SeaFood"]),
+        FilterGroup(category: "Health", filters:["High-Fiber", "Low-Sugar", "High Protein"])
     ]
 
     var suggestions: [String] {
