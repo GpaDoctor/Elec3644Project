@@ -10,8 +10,8 @@ import SwiftUI
 
 let recipesData: [Recipe] = [
     Recipe(
-        id:UUID(),
-      title: "Sweet And Sour Pork",
+        id:UUID(uuidString: "C06D490D-2D61-4547-B0DB-A9E321F7BD95")!,
+        title: "Sweet And Sour Pork",
       headline: "Enjoy this tasty Sweet and Sour Pork recipe - a flavorful blend of tender pork and tangy Asian-inspired sauce. Perfect for pleasing your loved ones!",
       image: "SweetAndSourPork-cover",
         chef: "Jaden C",
@@ -54,7 +54,7 @@ let recipesData: [Recipe] = [
     
     
     Recipe(
-        id: UUID(),
+        id: UUID(uuidString: "C06D490D-2D61-4547-B0DB-A9E321F7BD96")!,
       title: "Brownie Tiramisu",
       headline: "Indulge in a heavenly dessert where fudgy brownies meet creamy tiramisu layers, whisking you away to an Italian cafe with every bite.",
       image: "BrownieTiramisu-cover",
@@ -94,7 +94,7 @@ let recipesData: [Recipe] = [
     
     
     Recipe(
-        id: UUID(),
+        id: UUID(uuidString: "C06D490D-2D61-4547-B0DB-A9E321F7BD97")!,
         title: "Easy Fish Tacos",
         headline: "Golden-brown fish fillets in corn tortillas with cabbage slaw, onion, sour cream, cilantro, and lime.",
         image: "EasyFishTacos-cover",
@@ -133,7 +133,7 @@ let recipesData: [Recipe] = [
     ),
     
     Recipe(
-        id: UUID(),
+        id: UUID(uuidString: "C06D490D-2D61-4547-B0DB-A9E321F7BD98")!,
         title: "Classic Margherita Pizza",
         headline: "A simple yet delicious classic Margherita Pizza made with fresh ingredients and a homemade crust.",
         image: "MargheritaPizza",
@@ -165,7 +165,7 @@ let recipesData: [Recipe] = [
     ),
     
     Recipe(
-    id: UUID(),
+    id: UUID(uuidString: "C06D490D-2D61-4547-B0DB-A9E321F7BD99")!,
      title: "Spaghetti Carbonara",
      headline: "A classic Italian pasta dish made with eggs, cheese, pancetta, and pepper.",
      image: "SpaghettiCarbonara",
@@ -195,7 +195,7 @@ let recipesData: [Recipe] = [
      ),
     
         Recipe(
-        id: UUID(),
+        id: UUID(uuidString: "C06D490D-2D61-4547-B0DB-A9E321F7BD10")!,
         title: "Chicken Tikka Masala",
         headline: "A popular Indian dish with marinated chicken cooked in a creamy tomato sauce.",
         image: "ChickenTikkaMasala",
@@ -233,7 +233,7 @@ let recipesData: [Recipe] = [
     ),
         
         Recipe(
-        id: UUID(),
+        id: UUID(uuidString: "C06D490D-2D61-4547-B0DB-A9E321F7BD11")!,
         title: "Beef Tacos",
         headline: "Delicious and easy beef tacos with a variety of toppings.",
         image: "BeefTacos",
@@ -260,7 +260,7 @@ let recipesData: [Recipe] = [
         tags: ["Mexican", "Tacos", "Beef", "Quick and Easy", "Dinner", "Comfort Food", "Homemade", "Family Meal", "Street Food", "Toppings","Esay","Breakfast", "Lunch"]
     ),
     Recipe(
-        id: UUID(),
+        id: UUID(uuidString: "C06D490D-2D61-4547-B0DB-A9E321F7BD12")!,
         title: "Teriyaki Salmon",
         headline: "A flavorful and healthy salmon dish with a sweet and savory teriyaki glaze.",
         image: "TeriyakiSalmon",
@@ -290,7 +290,7 @@ let recipesData: [Recipe] = [
     
     
     Recipe(
-        id: UUID(),
+        id: UUID(uuidString: "C06D490D-2D61-4547-B0DB-A9E321F7BD13")!,
         title: "Ginger Tofu Dessert",
         headline: "Delight in Ginger Tofu Dessert with silky tofu and homemade ginger syrup, blending creamy, spicy, and sweet flavors.",
         image: "GingerTofuDessert-cover",
@@ -318,7 +318,7 @@ let recipesData: [Recipe] = [
     ),
     
     Recipe(
-        id: UUID(),
+        id: UUID(uuidString: "C06D490D-2D61-4547-B0DB-A9E321F7BD14")!,
         title: "Chinese Chicken Fried Rice",
         headline: "DIY take-out: seven ingredients, one pan. Quick, versatile, budget-friendly. Customize with protein. Skip take-out; it's simple!",
         image: "ChineseChickenFriedRice-cover",
@@ -353,7 +353,7 @@ let recipesData: [Recipe] = [
     ),
     
     Recipe(
-        id: UUID(),
+        id: UUID(uuidString: "C06D490D-2D61-4547-B0DB-A9E321F7BD15")!,
         title: "Garlic Butter Steak",
         headline: "Indulge in a perfectly seared steak topped with garlic butter. Pair with veggies or mashed potatoes for a royal feast!",
         image: "GarlicButterSteak-cover",
@@ -387,7 +387,7 @@ let recipesData: [Recipe] = [
     ),
     
     Recipe(
-        id: UUID(),
+        id: UUID(uuidString: "C06D490D-2D61-4547-B0DB-A9E321F7BD15")!,
         title: "Ratatouille",
         headline: "Enjoy summer flavors with this easy ratatouille. Fresh veggies and herbs make a delicious French-inspired dish, ideal as a side or main course.",
         image: "Ratatouille-cover",
@@ -433,7 +433,7 @@ let recipesData: [Recipe] = [
     ),
     
     Recipe(
-        id: UUID(),
+        id: UUID(uuidString: "C06D490D-2D61-4547-B0DB-A9E321F7BD16")!,
         title: "Broccoli Chicken Alfredo Lasagna",
         headline: "Savor cheesy chicken-broccoli lasagna twist with layers of comfort.",
         image: "BroccoliChickenAlfredoLasagna-cover",
@@ -467,7 +467,7 @@ let recipesData: [Recipe] = [
     ),
     
     Recipe(
-        id: UUID(),
+        id: UUID(uuidString: "C06D490D-2D61-4547-B0DB-A9E321F7BD17")!,
         title: "Show-Stopping Beef Wellington",
         headline: "Create a stunning beef Wellington: season beef, add mustard, mushrooms, prosciutto, wrap in puff pastry, bake for perfection.",
         image: "Show-StoppingBeefWellington-cover",
@@ -514,7 +514,7 @@ let recipesData: [Recipe] = [
     ),
     
     Recipe(
-        id: UUID(),
+        id: UUID(uuidString: "C06D490D-2D61-4547-B0DB-A9E321F7BD18")!,
         title: "50-Clove Garlic Crab-Stuffed Salmon",
         headline: "Enjoy Garlic Crab-Stuffed Salmon: succulent salmon with crab, garlic butter, herbs, Old Bay. Baked to perfection for special occasions.",
         image: "50-CloveGarlicCrab-StuffedSalmon-cover",
