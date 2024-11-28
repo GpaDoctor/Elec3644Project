@@ -128,11 +128,11 @@ struct RecipeDetailView: View {
         .onAppear {
             self.pulsate.toggle()
         }
-//        .sheet(isPresented: $showUpdateView) {
-//            AddRecipeView(recipeToEdit: recipe) {
-//                updatedRecipe in
-//            }
-//        }
+        .sheet(isPresented: $showUpdateView) {
+                        AddRecipeView(
+                            recipeToEdit: recipe // Pass the recipe to be updated
+                        )
+                    }
     }
 }
 

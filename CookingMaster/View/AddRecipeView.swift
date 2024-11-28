@@ -182,47 +182,46 @@ struct AddRecipeView: View {
 
     // Save or Update Recipe
     private func saveOrUpdateRecipe() {
-        guard !title.isEmpty, !headline.isEmpty else { return }
+        guard !title.isEmpty, !headline.isEmpty else {
+            print("Please provide all required fields.")
+            return
+        }
 
-        if let recipeToEdit = recipeToEdit {
-            // Update Recipe
-            PersistenceController.shared.updateRecipe(
-                recipe: recipeToEdit,
-                updatedDetails: Recipe(
-                    id: recipeToEdit.id,
-                    title: title,
-                    headline: headline,
-                    image: recipeToEdit.image, // Keep the existing image path
-                    chef: chef,
-                    rating: rating,
-                    serves: serves,
-                    preparation: preparation,
-                    cooking: cooking,
-                    instructions: instructions,
-                    ingredients: ingredients,
-                    category: category,
-                    tags: tags
-                )
+        if let existingRecipe = recipeToEdit { // For updating an existing recipe
+            let updatedRecipe = Recipe(
+                id: existingRecipe.id,
+                title: title,
+                headline: headline,
+                image: existingRecipe.image, // Use existing image
+                chef: chef,
+                rating: rating,
+                serves: serves,
+                preparation: preparation,
+                cooking: cooking,
+                instructions: instructions,
+                ingredients: ingredients,
+                category: category,
+                tags: tags // Don't forget the tags
             )
-        } else {
-            // Save New Recipe
-            if let unwrappedImage = image {
-                let newRecipe = Recipe(
-                    id: UUID(),
-                    title: title,
-                    headline: headline,
-                    image: PersistenceController.shared.saveImageToDocuments(image: unwrappedImage),
-                    chef: chef,
-                    rating: rating,
-                    serves: serves,
-                    preparation: preparation,
-                    cooking: cooking,
-                    instructions: instructions,
-                    ingredients: ingredients,
-                    category: category,
-                    tags: tags
-                )
-                PersistenceController.shared.saveRecipe(recipe: newRecipe, image: unwrappedImage)
+            PersistenceController.shared.updateRecipe(recipe: existingRecipe, updatedDetails: updatedRecipe)
+        } else { // For saving a new recipe
+            let newRecipe = Recipe(
+                id: UUID(),
+                title: title,
+                headline: headline,
+                image: "", // Placeholder for new image
+                chef: chef,
+                rating: rating,
+                serves: serves,
+                preparation: preparation,
+                cooking: cooking,
+                instructions: instructions,
+                ingredients: ingredients,
+                category: category,
+                tags: tags
+            )
+            if let image = image {
+                PersistenceController.shared.saveRecipe(recipe: newRecipe, image: image)
             }
         }
 

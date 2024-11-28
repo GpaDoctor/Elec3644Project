@@ -136,6 +136,7 @@ struct PersistenceController {
 
         do {
             if let entity = try context.fetch(fetchRequest).first {
+                // Update properties
                 entity.title = updatedDetails.title
                 entity.headline = updatedDetails.headline
                 entity.chef = updatedDetails.chef
@@ -146,10 +147,13 @@ struct PersistenceController {
                 entity.instructions = updatedDetails.instructions.joined(separator: ",")
                 entity.ingredients = updatedDetails.ingredients.joined(separator: ",")
                 entity.category = updatedDetails.category
-                entity.tags = updatedDetails.tags.joined(separator: ",") // Fix: Ensure tags are saved
-
+                entity.tags = updatedDetails.tags.joined(separator: ",")
+                
+                // Save the context
                 try context.save()
                 print("Recipe updated successfully!")
+            } else {
+                print("Error: No matching recipe found to update.")
             }
         } catch {
             print("Failed to update recipe: \(error.localizedDescription)")
