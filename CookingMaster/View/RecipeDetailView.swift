@@ -111,14 +111,27 @@ struct RecipeDetailView: View {
                     .padding(.trailing,20)
                     .padding(.top, 24)
                     Spacer()
-                    Button {
-                        showUpdateView = true
-                    } label: {
-                        Image(systemName: "pencil")
-                            .font(.largeTitle)
-                            .foregroundColor(.white)
-                            .shadow(radius: 4)
-                            .opacity(pulsate ? 1 : 0.6)
+                    VStack {
+                        Button {
+                            showUpdateView = true
+                        } label: {
+                            Image(systemName: "pencil")
+                                .font(.largeTitle)
+                                .foregroundColor(.white)
+                                .shadow(radius: 4)
+                                .opacity(pulsate ? 1 : 0.6)
+                        }
+                        .padding(.bottom, 10)
+                        
+                        Button {
+                            deleteRecipe()
+                        } label: {
+                            Image(systemName: "trash.circle.fill")
+                                .font(.largeTitle)
+                                .foregroundColor(.red)
+                                .shadow(radius: 4)
+                                .opacity(0.8)
+                        }
                     }
                     
                     
@@ -136,6 +149,12 @@ struct RecipeDetailView: View {
                         )
                     }
     }
+    // MARK: - Delete Recipe
+        private func deleteRecipe() {
+            // Call PersistenceController to delete the recipe
+            PersistenceController.shared.deleteRecipeById(recipe.id)
+            presentationMode.wrappedValue.dismiss()
+        }
 }
 
 struct RecipeDetailView_Previews: PreviewProvider {

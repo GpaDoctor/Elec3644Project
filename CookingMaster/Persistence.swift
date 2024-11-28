@@ -290,3 +290,22 @@ extension PersistenceController {
     }
 }
 
+extension PersistenceController {
+    func deleteRecipeById(_ id: UUID) {
+        let context = container.viewContext
+        let fetchRequest: NSFetchRequest<RecipeEntity> = RecipeEntity.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "id == %@", id as CVarArg)
+
+        do {
+            if let recipeEntity = try context.fetch(fetchRequest).first {
+                context.delete(recipeEntity)
+                try context.save()
+                print("Recipe deleted successfully!")
+            } else {
+                print("No recipe found with the specified ID.")
+            }
+        } catch {
+            print("Failed to delete recipe: \(error.localizedDescription)")
+        }
+    }
+}
