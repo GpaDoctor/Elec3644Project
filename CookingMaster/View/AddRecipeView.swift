@@ -108,6 +108,12 @@ struct AddRecipeView: View {
                         Text("Cooking Time: \(cooking) mins")
                     }
                 }
+                
+//                Section(header: Text("Tags")){
+//                    
+//                }
+                
+                
             }
             .navigationTitle("Add Recipe")
             .toolbar {
