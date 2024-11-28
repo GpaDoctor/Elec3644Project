@@ -111,10 +111,11 @@ struct RecipeGridView: View {
                 // Display recipes from Core Data in a grid
                 LazyVGrid(columns: columns, spacing: 15) {
                     ForEach(fetchedRecipes, id: \.id) { recipeEntity in
-                        NavigationLink(destination: RecipeDetailView(recipe: mapRecipeEntityToRecipe(recipeEntity))) {
+                        NavigationLink(destination: MyRecipeDetailView(recipe: mapRecipeEntityToRecipe(recipeEntity))) {
                             RecipeGridItem(recipe: mapRecipeEntityToRecipe(recipeEntity))
                         }
                         .buttonStyle(PlainButtonStyle())
+                        
                         .frame(height: 150)
                     }
                 }

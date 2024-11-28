@@ -1,13 +1,13 @@
 //
-//  RecipeDetailView.swift
+//  MyRecipeDetailView.swift
 //  CookingMaster
 //
-//  Created by Ching Pan CHEUNG on 11/26/24.
-//Author Name: Cheung Ching Pan (3036101721)
+//  Created by Ching Pan CHEUNG on 11/29/24.
 //
+
 import SwiftUI
 
-struct RecipeDetailView: View {
+struct MyRecipeDetailView: View {
     // Properties
     var recipe: Recipe
     @State private var pulsate: Bool = false
@@ -111,6 +111,29 @@ struct RecipeDetailView: View {
                     .padding(.trailing,20)
                     .padding(.top, 24)
                     Spacer()
+                    VStack {
+                        Button {
+                            showUpdateView = true
+                        } label: {
+                            Image(systemName: "pencil")
+                                .font(.largeTitle)
+                                .foregroundColor(.white)
+                                .shadow(radius: 4)
+                                .opacity(pulsate ? 1 : 0.6)
+                        }
+                        .padding(.bottom, 10)
+                        
+                        Button {
+                            deleteRecipe()
+                        } label: {
+                            Image(systemName: "trash.circle.fill")
+                                .font(.largeTitle)
+                                .foregroundColor(.red)
+                                .shadow(radius: 4)
+                                .opacity(0.8)
+                        }
+                    }
+                    
                     
                 }
                 .padding(.horizontal,10)
@@ -126,11 +149,16 @@ struct RecipeDetailView: View {
                         )
                     }
     }
-
+    // MARK: - Delete Recipe
+        private func deleteRecipe() {
+            // Call PersistenceController to delete the recipe
+            PersistenceController.shared.deleteRecipeById(recipe.id)
+            presentationMode.wrappedValue.dismiss()
+        }
 }
 
-struct RecipeDetailView_Previews: PreviewProvider {
+struct MyRecipeDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        RecipeDetailView(recipe: recipesData[0])
+        MyRecipeDetailView(recipe: recipesData[0])
     }
 }
