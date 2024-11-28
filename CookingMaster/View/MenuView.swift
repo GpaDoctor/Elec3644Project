@@ -34,9 +34,11 @@ struct MenuView: View {
                         showMenu = true
                     }) {
                         Image("greenplus")
+                            .padding(.top,110)
                     }
                 }
             }
+            
             .sheet(isPresented: $showMenu) {
                 AddMenuView(onSave: { newMenu in
                     userMenus.append(newMenu)

@@ -26,14 +26,7 @@ struct MenuRowView: View {
         HStack{
             let uuidStrings = menu.dishID.split(separator: ",").map(String.init)
             let uuidArray = uuidStrings.compactMap(UUID.init)
-            let recipeEntity = fetchedRecipes;
-            if (menu.name == "wyywyw") {
-                let v = "进入了"
-            }
-            
-            let straing = "====\(recipeEntity.first?.id?.uuidString)====\(recipeEntity.last?.id?.uuidString)"
-            let recipeEntity1 = fetchedRecipes.first(where: { $0.id?.uuidString == uuidArray.first?.uuidString })
-            // Find the first recipe matching the first dishID in Core Data
+
             if let firstDishID = uuidArray.first {
                 if let recipe = recipes.first(where: { $0.id.uuidString == firstDishID.uuidString }) {
                     // Recipe is from recipesData

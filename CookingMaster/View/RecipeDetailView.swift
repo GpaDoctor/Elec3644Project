@@ -13,6 +13,7 @@ struct RecipeDetailView: View {
     @Environment(\.presentationMode) var presentationMode
     @State private var showUpdateView = false
     
+    
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
             VStack(alignment: .center, spacing: 0) {

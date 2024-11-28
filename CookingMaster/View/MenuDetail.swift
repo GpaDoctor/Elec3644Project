@@ -19,14 +19,13 @@ struct MenuDetial: View {
     
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
-            
             VStack {
-                //title
+                // Title
                 Text(menu.name)
                     .font(.system(.title, design: .serif))
                 
-                //recipe list
-                VStack(alignment:.center,spacing: 20){
+                // Recipe list
+                VStack(alignment: .leading, spacing: 20) {
                     let uuidStrings = menu.dishID.split(separator: ",").map(String.init)
                     let uuidArray = uuidStrings.compactMap(UUID.init)
                     ForEach(uuidArray, id: \.self) { dishID in
@@ -43,40 +42,31 @@ struct MenuDetial: View {
                 .frame(maxWidth: 640)
                 .padding(.horizontal)
                 
+                // Shopping List Title
                 Text("Shopping List")
                     .font(.system(.title, design: .serif))
                 
-                VStack(alignment:.center,spacing: 20){
+                // Shopping List with Checkboxes
+                VStack(alignment: .leading, spacing: 20) {
                     let uuidStrings = menu.dishID.split(separator: ",").map(String.init)
                     let uuidArray = uuidStrings.compactMap(UUID.init)
                     ForEach(uuidArray, id: \.self) { dishID in
                         if let recipe = recipes.first(where: { $0.id == dishID }) {
                             // Recipe from recipesData
                             ForEach(recipe.ingredients, id: \.self) { item in
-                                VStack(alignment: .leading, spacing: 5) {
-                                    Text(item)
-                                        .font(.footnote)
-                                        .multilineTextAlignment(.leading)
-                                    Divider()
-                                }
+                                IngredientRow(item: item)
                             }
                         } else if let recipeEntity = fetchedRecipes.first(where: { $0.id == dishID }) {
                             // Recipe from Core Data
                             let recipe = mapRecipeEntityToRecipe(recipeEntity)
                             ForEach(recipe.ingredients, id: \.self) { item in
-                                VStack(alignment: .leading, spacing: 5) {
-                                    Text(item)
-                                        .font(.footnote)
-                                        .multilineTextAlignment(.leading)
-                                    Divider()
-                                }
+                                IngredientRow(item: item)
                             }
                         }
                     }
                 }
                 .padding(.horizontal, 24)
                 .padding(.vertical, 12)
-                //.navigationTitle(menu.name) // Set the navigation title
             }
         }
     }
@@ -96,6 +86,35 @@ struct MenuDetial: View {
             category: entity.category ?? "",
             tags: entity.tags?.components(separatedBy: ",") ?? []
         )
+    }
+}
+// MARK: - Ingredient Row with Checkbox
+struct IngredientRow: View {
+    let item: String
+    @State private var isChecked: Bool = false
+
+    var body: some View {
+        HStack {
+            Toggle(isOn: $isChecked) {
+                Text(item)
+                    .font(.footnote)
+                    .multilineTextAlignment(.leading)
+            }
+            .toggleStyle(CheckboxToggleStyle())
+            Divider()
+        }
+    }
+}
+
+// MARK: - Custom Checkbox Toggle Style
+struct CheckboxToggleStyle: ToggleStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        HStack {
+            Image(systemName: configuration.isOn ? "checkmark.square" : "square")
+                .foregroundColor(configuration.isOn ? .green : .gray)
+                .onTapGesture { configuration.isOn.toggle() }
+            configuration.label
+        }
     }
 }
 struct MenuDetail_Previews: PreviewProvider{
