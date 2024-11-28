@@ -34,19 +34,22 @@ struct MenuView: View {
                         showMenu = true
                     }) {
                         Image("greenplus")
-                            .padding(.top,110)
                     }
                 }
             }
             
-            .sheet(isPresented: $showMenu) {
+            .sheet(isPresented: $showMenu, onDismiss: {
+                showMenu = false // Reset showMenu when the sheet is dismissed
+            }) {
                 AddMenuView(onSave: { newMenu in
                     userMenus.append(newMenu)
+                    showMenu = false // Reset showMenu after saving
                 })
             }
             .onAppear {
                 fetchMenus() // Call fetchMenus when the view appears
             }
+            
         }
     }
 
