@@ -133,7 +133,7 @@ struct PersistenceController {
         let context = container.viewContext
         let fetchRequest: NSFetchRequest<RecipeEntity> = RecipeEntity.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: "id == %@", recipe.id as CVarArg)
-
+        
         do {
             if let entity = try context.fetch(fetchRequest).first {
                 // Update properties
@@ -212,11 +212,11 @@ struct PersistenceController {
     func fetchMenus() -> [Menu] {
         let context = container.viewContext
         let fetchRequest: NSFetchRequest<MenuEntity> = MenuEntity.fetchRequest()
-
+        
         do {
             let menuEntities = try context.fetch(fetchRequest)
             let allRecipes = fetchRecipes() // Fetch all recipes (static and Core Data)
-
+            
             return menuEntities.map { menuEntity in
                 Menu(
                     id: menuEntity.id ?? UUID(),
@@ -225,14 +225,14 @@ struct PersistenceController {
                     date: menuEntity.date ?? Date()
                 )
             }
-//            .map { menu in
-//                // Resolve recipes using `dishID`
-//                var resolvedMenu = menu
-//                resolvedMenu.dishID = (resolvedMenu.dishID.components(separatedBy: ",").compactMap { UUID(uuidString: \$0) } ?? [])  .filter { id in
-//                    allRecipes.contains { $0.id.uuidString == id.uuidString }
-//                }.map { (\$0).id }.joined(separator: ",")
-//                return resolvedMenu
-//            }
+            //            .map { menu in
+            //                // Resolve recipes using `dishID`
+            //                var resolvedMenu = menu
+            //                resolvedMenu.dishID = (resolvedMenu.dishID.components(separatedBy: ",").compactMap { UUID(uuidString: \$0) } ?? [])  .filter { id in
+            //                    allRecipes.contains { $0.id.uuidString == id.uuidString }
+            //                }.map { (\$0).id }.joined(separator: ",")
+            //                return resolvedMenu
+            //            }
         } catch {
             print("Failed to fetch menus: \(error.localizedDescription)")
             return []
@@ -243,12 +243,12 @@ struct PersistenceController {
     func saveMenu(menu: Menu) {
         let context = container.viewContext
         let newMenu = MenuEntity(context: context)
-
+        
         newMenu.id = menu.id
         newMenu.name = menu.name
         newMenu.date = menu.date
         newMenu.dishid = menu.dishID
-
+        
         do {
             try context.save()
             print("Menu saved successfully!")
@@ -261,12 +261,31 @@ struct PersistenceController {
     func deleteMenu(_ menuEntity: MenuEntity) {
         let context = container.viewContext
         context.delete(menuEntity)
-
+        
         do {
             try context.save()
             print("Menu deleted successfully!")
         } catch {
             print("Failed to delete menu: \(error.localizedDescription)")
         }
-    }}
+    }
+}
+extension PersistenceController {
+    // Update menu date
+    func updateMenuDate(menu: Menu, newDate: Date) {
+        let context = container.viewContext
+        let fetchRequest: NSFetchRequest<MenuEntity> = MenuEntity.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "id == %@", menu.id as CVarArg)
+
+        do {
+            if let menuEntity = try context.fetch(fetchRequest).first {
+                menuEntity.date = newDate
+                try context.save()
+                print("Menu date updated successfully!")
+            }
+        } catch {
+            print("Failed to update menu date: \(error.localizedDescription)")
+        }
+    }
+}
 

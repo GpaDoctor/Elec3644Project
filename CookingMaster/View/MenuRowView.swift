@@ -19,8 +19,11 @@ struct MenuRowView: View {
             sortDescriptors: [NSSortDescriptor(keyPath: \RecipeEntity.title, ascending: true)]
         ) var fetchedRecipes: FetchedResults<RecipeEntity>
         
-    
-    
+    init(menu: Menu, recipes: [Recipe]) {
+            self.menu = menu
+            self.recipes = recipes
+            _date = State(initialValue: menu.date) 
+        }
     var body: some View {
         
         HStack{
@@ -110,11 +113,18 @@ struct MenuRowView: View {
                             .fill(Color.colorGreenAdaptive.opacity(0.3))
                     )
                     .padding(.vertical, 10)
+                    .onChange(of: date) { newDate in
+                                            saveDate(newDate: newDate)
+                                        }
                     Spacer()
                 }
             }
         }
     }
+    // MARK: - Save Updated Date to Core Data
+        private func saveDate(newDate: Date) {
+            PersistenceController.shared.updateMenuDate(menu: menu, newDate: newDate)
+        }
 }
 
 struct MenuRowView_Previews: PreviewProvider{
