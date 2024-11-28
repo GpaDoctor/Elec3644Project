@@ -118,6 +118,7 @@ struct PersistenceController {
         newRecipe.instructions = recipe.instructions.joined(separator: ",")
         newRecipe.ingredients = recipe.ingredients.joined(separator: ",")
         newRecipe.category = recipe.category
+        newRecipe.tags = recipe.tags.joined(separator: ",")
         
         do {
             try context.save()
