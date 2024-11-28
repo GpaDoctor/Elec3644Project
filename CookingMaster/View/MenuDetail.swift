@@ -47,7 +47,7 @@ struct MenuDetial: View {
                     .font(.system(.title, design: .serif))
                 
                 // Shopping List with Checkboxes
-                VStack(alignment: .leading, spacing: 20) {
+                VStack(alignment: .leading, spacing: 10) {
                     let uuidStrings = menu.dishID.split(separator: ",").map(String.init)
                     let uuidArray = uuidStrings.compactMap(UUID.init)
                     ForEach(uuidArray, id: \.self) { dishID in
@@ -65,7 +65,7 @@ struct MenuDetial: View {
                         }
                     }
                 }
-                .padding(.horizontal, 24)
+                .padding(.horizontal, 0)
                 .padding(.vertical, 12)
             }
         }
