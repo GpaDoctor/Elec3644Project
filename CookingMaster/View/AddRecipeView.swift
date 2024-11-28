@@ -29,7 +29,7 @@ struct AddRecipeView: View {
     @State private var showImagePicker = false
 
     var body: some View {
-        NavigationView {
+        NavigationStack {
             Form {
                 // Recipe Image Section
                 Section(header: Text("Recipe Photo")) {

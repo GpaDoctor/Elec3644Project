@@ -112,7 +112,7 @@ struct HomeView: View {
     var recipes: [Recipe] = recipesData
 
     var body: some View {
-        NavigationView {
+        NavigationStack {
             ScrollView(.vertical, showsIndicators: false) {
                 
                 // Search Bar

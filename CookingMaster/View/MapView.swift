@@ -183,7 +183,7 @@ struct SearchResultsView: View {
     @Binding var mapSelection: MKMapItem?
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             List {
                 Section(header: Text(searchText).font(.subheadline)) {
                     ForEach(searchResults, id: \.self) { item in

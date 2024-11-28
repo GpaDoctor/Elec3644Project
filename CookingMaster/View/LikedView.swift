@@ -31,7 +31,7 @@ struct LikedView: View {
     @State private var selectedFilter: FilterOption = .all
 
     var body: some View {
-        NavigationView {
+        NavigationStack {
             VStack {
                 // Filters at the top
                 filterSection
