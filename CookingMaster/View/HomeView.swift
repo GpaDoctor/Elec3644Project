@@ -151,6 +151,8 @@ struct HomeView: View {
                 VStack(alignment: .center, spacing: 20) {
                     ForEach(recipes) { item in
                         RecipeCardView(recipe: item)
+                        Spacer()
+//                        Spacer()
                     }
                 }
                 .padding(.horizontal)
