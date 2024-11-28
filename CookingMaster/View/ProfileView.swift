@@ -2,8 +2,8 @@
 //  ProfileView.swift
 //  CookingMaster
 //
-// Author Name: Cheung Ching Pan (3036101721)
-//              Cheung Man Hei Kay (3036106109)
+// Author Name: Wong Lok Wang (3035947477)
+//              
 //
 
 import SwiftUI
