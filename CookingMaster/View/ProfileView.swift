@@ -110,6 +110,7 @@
 
 
 import SwiftUI
+import CoreData
 
 struct ProfileView: View {
     @AppStorage("accountName") var accountName: String = "GpaDoctor"
@@ -192,6 +193,10 @@ struct ProfileView: View {
 }
 
 struct RecipeGridView: View {
+    @FetchRequest(
+            entity: RecipeEntity.entity(),
+            sortDescriptors: [NSSortDescriptor(keyPath: \RecipeEntity.title, ascending: true)]
+        ) var fetchedRecipes: FetchedResults<RecipeEntity>
     var allRecipes: [Recipe] = recipesData // Use your actual data source
 
     var myRecipes: [Recipe] {
@@ -205,22 +210,80 @@ struct RecipeGridView: View {
 
     var body: some View {
         ScrollView {
-            if myRecipes.isEmpty {
+            if fetchedRecipes.isEmpty {
+                // Display a message if no recipes are available
                 Text("You haven't added any recipes yet.")
                     .foregroundColor(.gray)
                     .padding()
             } else {
+                // Display recipes from Core Data in a grid
                 LazyVGrid(columns: columns, spacing: 15) {
-                    ForEach(myRecipes) { recipe in
-                        NavigationLink(destination: RecipeDetailView(recipe: recipe)) {
-                            RecipeGridItem(recipe: recipe)
+                    ForEach(fetchedRecipes, id: \.id) { recipeEntity in
+                        NavigationLink(destination: RecipeDetailView(recipe: mapRecipeEntityToRecipe(recipeEntity))) {
+                            RecipeGridItem(recipe: mapRecipeEntityToRecipe(recipeEntity))
                         }
                         .buttonStyle(PlainButtonStyle())
                         .frame(height: 150)
                     }
                 }
-                .padding(.horizontal, 15)
+                
             }
         }
     }
+    private func mapRecipeEntityToRecipe(_ entity: RecipeEntity) -> Recipe {
+            return Recipe(
+                id: entity.id ?? UUID(),
+                title: entity.title ?? "",
+                headline: entity.headline ?? "",
+                image: entity.image ?? "",
+                chef: entity.chef ?? "",
+                rating: Int(entity.rating),
+                serves: Int(entity.serves),
+                preparation: Int(entity.preparation),
+                cooking: Int(entity.cooking),
+                instructions: entity.instructions?.components(separatedBy: ",") ?? [],
+                ingredients: entity.ingredients?.components(separatedBy: ",") ?? [],
+                category: entity.category ?? "",
+                tags: entity.tags?.components(separatedBy: ",") ?? []
+            )
+        }
+
 }
+struct RecipeGridItem: View {
+    var recipe: Recipe
+
+    var body: some View {
+        VStack {
+            if let loadedImage = PersistenceController.shared.loadImageFromDocuments(fileName: recipe.image) {
+                // Dynamically loaded image from file
+                Image(uiImage: loadedImage)
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: (UIScreen.main.bounds.width / 2) - 25, height: 150)
+                    .clipped()
+                    .cornerRadius(10)
+            } else if UIImage(named: recipe.image) != nil {
+                // Image from Asset Catalog
+                Image(recipe.image)
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: (UIScreen.main.bounds.width / 2) - 25, height: 150)
+                    .clipped()
+                    .cornerRadius(10)
+            } else {
+                // Fallback if no image is found
+                Rectangle()
+                    .fill(Color.gray.opacity(0.3))
+                    .frame(width: 110, height: 110)
+                    .cornerRadius(10)
+                    .overlay(
+                        Text("No Image")
+                            .font(.caption)
+                            .foregroundColor(.white)
+                    )
+            }
+
+        }
+    }
+}
+
